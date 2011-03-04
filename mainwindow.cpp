@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 
 #include "cleaner_ark.h"
+#include "cleaner_choqoktimeline.h"
 #include "cleaner_cookie.h"
 #include "cleaner_cookiepolicy.h"
 #include "cleaner_dolphin.h"
@@ -39,6 +40,7 @@
 #include "cleaner_okulardocdata.h"
 #include "cleaner_plasmawallpaper.h"
 #include "cleaner_recentdoc.h"
+#include "cleaner_rekonqhistory.h"
 #include "cleaner_rekonqsnap.h"
 #include "cleaner_smplayer.h"
 #include "cleaner_thumbnail.h"
@@ -137,6 +139,7 @@ void MainWindow::saolaji()
 void MainWindow::loadCleaners()
 {
     m_cleaners << new CleanerArk;
+    m_cleaners << new CleanerChoqokTimeline;
     m_cleaners << new CleanerCookie;
     m_cleaners << new CleanerCookiePolicy;
     m_cleaners << new CleanerDolphin;
@@ -175,6 +178,7 @@ void MainWindow::loadCleaners()
     m_cleaners << new CleanerOkularDocData;
     m_cleaners << new CleanerPlasmaWallpaper;
     m_cleaners << new CleanerRecentDoc;
+    m_cleaners << new CleanerRekonqHistory;
     m_cleaners << new CleanerRekonqSnap;
     m_cleaners << new CleanerSMPlayer;
     m_cleaners << new CleanerThumbnail;

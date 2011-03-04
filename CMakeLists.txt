@@ -12,6 +12,7 @@ include_directories(${QT_INCLUDES} ${KDE4_INCLUDES})
 
 set(ksaolaji_cleaners_SRCS
     cleaner_ark.cpp
+    cleaner_choqoktimeline.cpp
     cleaner_cookie.cpp
     cleaner_cookiepolicy.cpp
     cleaner_dolphin.cpp
@@ -50,6 +51,7 @@ set(ksaolaji_cleaners_SRCS
     cleaner_okulardocdata.cpp
     cleaner_plasmawallpaper.cpp
     cleaner_recentdoc.cpp
+    cleaner_rekonqhistory.cpp
     cleaner_rekonqsnap.cpp
     cleaner_smplayer.cpp
     cleaner_thumbnail.cpp
