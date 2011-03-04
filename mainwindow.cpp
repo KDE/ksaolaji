@@ -12,6 +12,8 @@
 #include "cleaner_kate.h"
 #include "cleaner_kdeglobal.h"
 #include "cleaner_kgamerenderer.h"
+#include "cleaner_kget.h"
+#include "cleaner_kgethistory.h"
 #include "cleaner_khtmlform.h"
 #include "cleaner_kickoff.h"
 #include "cleaner_kiohelpcache.h"
@@ -32,6 +34,7 @@
 #include "cleaner_ktrash.h"
 #include "cleaner_kword.h"
 #include "cleaner_kwrite.h"
+#include "cleaner_nepomukcache.h"
 #include "cleaner_okular.h"
 #include "cleaner_okulardocdata.h"
 #include "cleaner_plasmawallpaper.h"
@@ -145,6 +148,8 @@ void MainWindow::loadCleaners()
     m_cleaners << new CleanerKate;
     m_cleaners << new CleanerKDEGlobal;
     m_cleaners << new CleanerKGameRenderer;
+    m_cleaners << new CleanerKGet;
+    m_cleaners << new CleanerKGetHistory;
     m_cleaners << new CleanerKHTMLForm;
     m_cleaners << new CleanerKickoff;
     m_cleaners << new CleanerKIOHelpCache;
@@ -165,6 +170,7 @@ void MainWindow::loadCleaners()
     m_cleaners << new CleanerKTrash;
     m_cleaners << new CleanerKWord;
     m_cleaners << new CleanerKWrite;
+    m_cleaners << new CleanerNepomukCache;
     m_cleaners << new CleanerOkular;
     m_cleaners << new CleanerOkularDocData;
     m_cleaners << new CleanerPlasmaWallpaper;
