@@ -7,6 +7,7 @@
 #include "cleaner_dolphin.h"
 #include "cleaner_dummy.h"
 #include "cleaner_favicon.h"
+#include "cleaner_fcitxrecord.h"
 #include "cleaner_flashplayer.h"
 #include "cleaner_gwenview.h"
 #include "cleaner_kaffeine.h"
@@ -45,6 +46,7 @@
 #include "cleaner_smplayer.h"
 #include "cleaner_thumbnail.h"
 #include "cleaner_vlc.h"
+#include "cleaner_winetrickscache.h"
 
 #include <KActionCollection>
 #include <KDebug>
@@ -145,6 +147,7 @@ void MainWindow::loadCleaners()
     m_cleaners << new CleanerDolphin;
     m_cleaners << new CleanerDummy;
     m_cleaners << new CleanerFavicon;
+    m_cleaners << new CleanerFcitxRecord;
     m_cleaners << new CleanerFlashPlayer;
     m_cleaners << new CleanerGwenview;
     m_cleaners << new CleanerKaffeine;
@@ -183,6 +186,7 @@ void MainWindow::loadCleaners()
     m_cleaners << new CleanerSMPlayer;
     m_cleaners << new CleanerThumbnail;
     m_cleaners << new CleanerVLC;
+    m_cleaners << new CleanerWinetricksCache;
 
     refresh();
 }

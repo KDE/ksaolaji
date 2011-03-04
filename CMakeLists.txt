@@ -18,6 +18,7 @@ set(ksaolaji_cleaners_SRCS
     cleaner_dolphin.cpp
     cleaner_dummy.cpp
     cleaner_favicon.cpp
+    cleaner_fcitxrecord.cpp
     cleaner_flashplayer.cpp
     cleaner_gwenview.cpp
     cleaner_kaffeine.cpp
@@ -56,6 +57,7 @@ set(ksaolaji_cleaners_SRCS
     cleaner_smplayer.cpp
     cleaner_thumbnail.cpp
     cleaner_vlc.cpp
+    cleaner_winetrickscache.cpp
 )
 
 set(ksaolaji_SRCS
