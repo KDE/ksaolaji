@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 
+#include "cleaner_kross.h"
+
 #include "cleaner_ark.h"
 #include "cleaner_choqoktimeline.h"
 #include "cleaner_cookie.h"
@@ -54,7 +56,9 @@
 #include <KLocale>
 #include <KPushButton>
 #include <KStandardAction>
+#include <KStandardDirs>
 
+#include <QDir>
 #include <QTimer>
 #include <QListWidget>
 #include <QVBoxLayout>
@@ -140,6 +144,17 @@ void MainWindow::saolaji()
 
 void MainWindow::loadCleaners()
 {
+    /// load kross cleaners
+    QDir krossdir( KStandardDirs::locateLocal( "appdata", "kross" ) );
+    QFileInfoList scripts = krossdir.entryInfoList( QDir::Files | QDir::NoSymLinks );
+    QFileInfoList::ConstIterator it = scripts.constBegin();
+    QFileInfoList::ConstIterator end = scripts.constEnd();
+    while ( it != end ) {
+        m_cleaners << new CleanerKross( ( *it ).absoluteFilePath() );
+        ++it;
+    }
+
+    /// load built-in cleaners
     m_cleaners << new CleanerArk;
     m_cleaners << new CleanerChoqokTimeline;
     m_cleaners << new CleanerCookie;

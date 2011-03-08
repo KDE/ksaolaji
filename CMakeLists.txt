@@ -40,6 +40,7 @@ set(ksaolaji_cleaners_SRCS
     cleaner_kpixmapcache.cpp
     cleaner_kpresenter.cpp
     cleaner_krita.cpp
+    cleaner_kross.cpp
     cleaner_krunner.cpp
     cleaner_kspread.cpp
     cleaner_ktorrent.cpp
@@ -70,7 +71,7 @@ set(ksaolaji_SRCS
 
 kde4_add_executable(ksaolaji ${ksaolaji_SRCS})
 
-target_link_libraries(ksaolaji ${KDE4_KIO_LIBS} ${NEPOMUK_LIBRARIES})
+target_link_libraries(ksaolaji ${KDE4_KIO_LIBS} ${NEPOMUK_LIBRARIES} ${KDE4_KROSSCORE_LIBS})
 
 install(TARGETS ksaolaji ${INSTALL_TARGETS_DEFAULT_ARGS})
 
