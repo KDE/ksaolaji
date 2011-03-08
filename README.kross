@@ -10,6 +10,10 @@ bool saolaji() --- Do the actual cleaning
 
 Examples can be found in examples/python or examples/ruby sub-directory.
 
+How to install my cleaner?
+Copy your script file into ~/.kde/share/apps/ksaolaji/kross/ and restart KSaoLaJi.
+You may need to install kross-python or kross-ruby from kdebindings to get it work properly.
+
 HAPPY HACKING  :) ;) :>
 
 Ni Hui
