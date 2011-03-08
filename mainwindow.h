@@ -2,11 +2,12 @@
 #define MAINWINDOW_H
 
 #include <KXmlGuiWindow>
-#include <QList>
 
-class QListWidget;
+class QListView;
+class QSortFilterProxyModel;
+class KLineEdit;
 class KPushButton;
-class Cleaner;
+class CleanerModel;
 
 class MainWindow : public KXmlGuiWindow
 {
@@ -14,16 +15,13 @@ class MainWindow : public KXmlGuiWindow
     public:
         explicit MainWindow();
         virtual ~MainWindow();
-    public Q_SLOTS:
-        void refresh();
-        void saolaji();
-    private Q_SLOTS:
-        void loadCleaners();
     private:
-        QListWidget* m_listWidget;
+        KLineEdit* m_searchEdit;
+        QListView* m_listView;
+        QSortFilterProxyModel* m_proxyModel;
+        CleanerModel* m_listModel;
         KPushButton* m_refreshButton;
         KPushButton* m_button;
-        QList<Cleaner*> m_cleaners;
 };
 
 #endif // MAINWINDOW_H

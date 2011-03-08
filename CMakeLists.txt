@@ -64,6 +64,8 @@ set(ksaolaji_cleaners_SRCS
 set(ksaolaji_SRCS
     ${ksaolaji_cleaners_SRCS}
     cleaner.cpp
+    cleaneritem.cpp
+    cleanermodel.cpp
     ksaolajiapp.cpp
     main.cpp
     mainwindow.cpp

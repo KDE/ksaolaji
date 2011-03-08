@@ -1,7 +1,6 @@
 #ifndef CLEANER_H
 #define CLEANER_H
 
-#include <QMetaType>
 #include <QObject>
 #include <QString>
 
@@ -19,7 +18,5 @@ class Cleaner : public QObject
         /** sao la ji */
         virtual bool saolaji() = 0;
 };
-
-Q_DECLARE_METATYPE(Cleaner*)
 
 #endif // CLEANER_H

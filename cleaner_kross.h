@@ -19,6 +19,8 @@ class CleanerKross : public Cleaner
         virtual bool saolaji();
     private:
         Kross::Action* m_action;
+        QString m_description;
+        QString m_iconName;
 };
 
 #endif // CLEANER_KROSS_H
