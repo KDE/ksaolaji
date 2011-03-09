@@ -3,11 +3,10 @@
 
 #include "cleaner.h"
 
-class CleanerKTorrent : public Cleaner
+class CleanerKTorrent : public KSaoLaJi::Cleaner
 {
-    Q_OBJECT
     public:
-        explicit CleanerKTorrent( QObject* parent = 0 );
+        explicit CleanerKTorrent();
         virtual ~CleanerKTorrent();
         virtual QString description();
         virtual QString iconName();

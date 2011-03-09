@@ -9,8 +9,7 @@
 #include <QDBusConnectionInterface>
 #include <QDBusInterface>
 
-CleanerKRunner::CleanerKRunner( QObject* parent )
-: Cleaner(parent)
+CleanerKRunner::CleanerKRunner()
 {
 }
 

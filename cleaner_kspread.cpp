@@ -5,8 +5,7 @@
 #include <KDebug>
 #include <KLocale>
 
-CleanerKSpread::CleanerKSpread( QObject* parent )
-: Cleaner(parent)
+CleanerKSpread::CleanerKSpread()
 {
 }
 

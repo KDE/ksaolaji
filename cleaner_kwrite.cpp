@@ -5,8 +5,7 @@
 #include <KDebug>
 #include <KLocale>
 
-CleanerKWrite::CleanerKWrite( QObject* parent )
-: Cleaner(parent)
+CleanerKWrite::CleanerKWrite()
 {
 }
 

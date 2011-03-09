@@ -10,8 +10,7 @@
 
 #include <QDir>
 
-CleanerWinetricksCache::CleanerWinetricksCache( QObject* parent )
-: Cleaner(parent)
+CleanerWinetricksCache::CleanerWinetricksCache()
 {
 }
 

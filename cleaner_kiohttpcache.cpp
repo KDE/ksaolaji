@@ -6,8 +6,7 @@
 
 #include <QProcess>
 
-CleanerKIOHttpCache::CleanerKIOHttpCache( QObject* parent )
-: Cleaner(parent)
+CleanerKIOHttpCache::CleanerKIOHttpCache()
 {
 }
 

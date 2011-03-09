@@ -1,20 +1,17 @@
 #ifndef CLEANER_DUMMY_H
 #define CLEANER_DUMMY_H
 
-#include "cleaner.h"
+#include <ksaolaji/cleaner_plugin.h>
 
-class CleanerDummy : public Cleaner
+class CleanerDummy : public KSaoLaJi::CleanerPlugin
 {
     Q_OBJECT
     public:
-        explicit CleanerDummy( QObject* parent = 0 );
+        explicit CleanerDummy( QObject* parent, const QVariantList& args );
         virtual ~CleanerDummy();
         virtual QString description();
         virtual QString iconName();
-
-        /** you mei you la ji ? */
         virtual bool youlaji();
-        /** sao la ji */
         virtual bool saolaji();
 };
 

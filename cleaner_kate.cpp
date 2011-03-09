@@ -5,8 +5,7 @@
 #include <KDebug>
 #include <KLocale>
 
-CleanerKate::CleanerKate( QObject* parent )
-: Cleaner(parent)
+CleanerKate::CleanerKate()
 {
 }
 

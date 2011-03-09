@@ -1,15 +1,15 @@
 #ifndef CLEANER_H
 #define CLEANER_H
 
-#include <QObject>
 #include <QString>
 
-class Cleaner : public QObject
+namespace KSaoLaJi {
+
+class Cleaner
 {
-    Q_OBJECT
     public:
-        explicit Cleaner( QObject* parent = 0 );
-        virtual ~Cleaner();
+        explicit Cleaner() {}
+        virtual ~Cleaner() {}
         virtual QString description() = 0;
         virtual QString iconName() = 0;
 
@@ -18,5 +18,7 @@ class Cleaner : public QObject
         /** sao la ji */
         virtual bool saolaji() = 0;
 };
+
+}
 
 #endif // CLEANER_H

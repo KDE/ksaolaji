@@ -3,11 +3,10 @@
 
 #include "cleaner.h"
 
-class CleanerRekonqHistory : public Cleaner
+class CleanerRekonqHistory : public KSaoLaJi::Cleaner
 {
-    Q_OBJECT
     public:
-        explicit CleanerRekonqHistory( QObject* parent = 0 );
+        explicit CleanerRekonqHistory();
         virtual ~CleanerRekonqHistory();
         virtual QString description();
         virtual QString iconName();

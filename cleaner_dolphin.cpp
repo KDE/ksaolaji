@@ -5,8 +5,7 @@
 #include <KDebug>
 #include <KLocale>
 
-CleanerDolphin::CleanerDolphin( QObject* parent )
-: Cleaner(parent)
+CleanerDolphin::CleanerDolphin()
 {
 }
 

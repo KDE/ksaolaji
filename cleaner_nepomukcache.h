@@ -3,11 +3,10 @@
 
 #include "cleaner.h"
 
-class CleanerNepomukCache : public Cleaner
+class CleanerNepomukCache : public KSaoLaJi::Cleaner
 {
-    Q_OBJECT
     public:
-        explicit CleanerNepomukCache( QObject* parent = 0 );
+        explicit CleanerNepomukCache();
         virtual ~CleanerNepomukCache();
         virtual QString description();
         virtual QString iconName();

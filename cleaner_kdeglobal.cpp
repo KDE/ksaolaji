@@ -5,8 +5,7 @@
 #include <KDebug>
 #include <KLocale>
 
-CleanerKDEGlobal::CleanerKDEGlobal( QObject* parent )
-: Cleaner(parent)
+CleanerKDEGlobal::CleanerKDEGlobal()
 {
 }
 

@@ -10,8 +10,7 @@
 #include <QDir>
 #include <QFile>
 
-CleanerFlashPlayer::CleanerFlashPlayer( QObject* parent )
-: Cleaner(parent)
+CleanerFlashPlayer::CleanerFlashPlayer()
 {
 }
 

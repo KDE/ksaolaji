@@ -3,11 +3,10 @@
 
 #include "cleaner.h"
 
-class CleanerFlashPlayer : public Cleaner
+class CleanerFlashPlayer : public KSaoLaJi::Cleaner
 {
-    Q_OBJECT
     public:
-        explicit CleanerFlashPlayer( QObject* parent = 0 );
+        explicit CleanerFlashPlayer();
         virtual ~CleanerFlashPlayer();
         virtual QString description();
         virtual QString iconName();

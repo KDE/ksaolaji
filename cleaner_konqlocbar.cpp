@@ -5,8 +5,7 @@
 #include <KDebug>
 #include <KLocale>
 
-CleanerKonqLocBar::CleanerKonqLocBar( QObject* parent )
-: Cleaner(parent)
+CleanerKonqLocBar::CleanerKonqLocBar()
 {
 }
 

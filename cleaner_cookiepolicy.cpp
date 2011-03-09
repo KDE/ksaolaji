@@ -9,8 +9,7 @@
 #include <QDBusConnectionInterface>
 #include <QDBusInterface>
 
-CleanerCookiePolicy::CleanerCookiePolicy( QObject* parent )
-: Cleaner(parent)
+CleanerCookiePolicy::CleanerCookiePolicy()
 {
 }
 

@@ -1,10 +1,12 @@
-#include "cleaner_dummy.h"
+#include "ksaolaji_cleaner_dummy.h"
 
 #include <KDebug>
 #include <KLocale>
 
-CleanerDummy::CleanerDummy( QObject* parent )
-: Cleaner(parent)
+KSAOLAJI_EXPORT_PLUGIN( CleanerDummy )
+
+CleanerDummy::CleanerDummy( QObject* parent, const QVariantList& args )
+: KSaoLaJi::CleanerPlugin(parent, args)
 {
 }
 
@@ -24,7 +26,7 @@ QString CleanerDummy::iconName()
 
 bool CleanerDummy::youlaji()
 {
-//     kWarning() << "CleanerDummy::youlaji";
+    kWarning() << "CleanerDummy::youlaji";
     return true;
 }
 

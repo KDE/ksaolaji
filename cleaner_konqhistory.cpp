@@ -9,8 +9,7 @@
 #include <QDBusMessage>
 #include <QFile>
 
-CleanerKonqHistory::CleanerKonqHistory( QObject* parent )
-: Cleaner(parent)
+CleanerKonqHistory::CleanerKonqHistory()
 {
 }
 

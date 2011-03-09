@@ -5,8 +5,7 @@
 #include <KDebug>
 #include <KLocale>
 
-CleanerKMid::CleanerKMid( QObject* parent )
-: Cleaner(parent)
+CleanerKMid::CleanerKMid()
 {
 }
 

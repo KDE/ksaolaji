@@ -6,8 +6,7 @@
 
 #include <QFile>
 
-CleanerRekonqHistory::CleanerRekonqHistory( QObject* parent )
-: Cleaner(parent)
+CleanerRekonqHistory::CleanerRekonqHistory()
 {
 }
 

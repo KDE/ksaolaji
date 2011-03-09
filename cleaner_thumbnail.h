@@ -3,11 +3,10 @@
 
 #include "cleaner.h"
 
-class CleanerThumbnail : public Cleaner
+class CleanerThumbnail : public KSaoLaJi::Cleaner
 {
-    Q_OBJECT
     public:
-        explicit CleanerThumbnail( QObject* parent = 0 );
+        explicit CleanerThumbnail();
         virtual ~CleanerThumbnail();
         virtual QString description();
         virtual QString iconName();

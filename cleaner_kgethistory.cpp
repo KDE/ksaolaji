@@ -10,8 +10,7 @@
 
 #include <QFile>
 
-CleanerKGetHistory::CleanerKGetHistory( QObject* parent )
-: Cleaner(parent)
+CleanerKGetHistory::CleanerKGetHistory()
 {
 }
 

@@ -3,11 +3,10 @@
 
 #include "cleaner.h"
 
-class CleanerCookiePolicy : public Cleaner
+class CleanerCookiePolicy : public KSaoLaJi::Cleaner
 {
-    Q_OBJECT
     public:
-        explicit CleanerCookiePolicy( QObject* parent = 0 );
+        explicit CleanerCookiePolicy();
         virtual ~CleanerCookiePolicy();
         virtual QString description();
         virtual QString iconName();

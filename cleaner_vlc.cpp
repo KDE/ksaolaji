@@ -7,8 +7,7 @@
 #include <QFile>
 #include <QSettings>
 
-CleanerVLC::CleanerVLC( QObject* parent )
-: Cleaner(parent)
+CleanerVLC::CleanerVLC()
 {
 }
 

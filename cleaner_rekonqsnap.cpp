@@ -11,8 +11,7 @@
 #include <QDir>
 #include <QFile>
 
-CleanerRekonqSnap::CleanerRekonqSnap( QObject* parent )
-: Cleaner(parent)
+CleanerRekonqSnap::CleanerRekonqSnap()
 {
 }
 

@@ -5,8 +5,7 @@
 #include <KDebug>
 #include <KLocale>
 
-CleanerKWord::CleanerKWord( QObject* parent )
-: Cleaner(parent)
+CleanerKWord::CleanerKWord()
 {
 }
 

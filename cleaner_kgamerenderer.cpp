@@ -10,8 +10,7 @@
 
 #include <QDir>
 
-CleanerKGameRenderer::CleanerKGameRenderer( QObject* parent )
-: Cleaner(parent)
+CleanerKGameRenderer::CleanerKGameRenderer()
 {
 }
 

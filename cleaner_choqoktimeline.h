@@ -3,11 +3,10 @@
 
 #include "cleaner.h"
 
-class CleanerChoqokTimeline : public Cleaner
+class CleanerChoqokTimeline : public KSaoLaJi::Cleaner
 {
-    Q_OBJECT
     public:
-        explicit CleanerChoqokTimeline( QObject* parent = 0 );
+        explicit CleanerChoqokTimeline();
         virtual ~CleanerChoqokTimeline();
         virtual QString description();
         virtual QString iconName();

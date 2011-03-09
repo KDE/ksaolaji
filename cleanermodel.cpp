@@ -1,13 +1,13 @@
 #include "cleanermodel.h"
 
 #include "cleaner_kross.h"
+#include "cleaner_plugin.h"
 
 #include "cleaner_ark.h"
 #include "cleaner_choqoktimeline.h"
 #include "cleaner_cookie.h"
 #include "cleaner_cookiepolicy.h"
 #include "cleaner_dolphin.h"
-#include "cleaner_dummy.h"
 #include "cleaner_favicon.h"
 #include "cleaner_fcitxrecord.h"
 #include "cleaner_flashplayer.h"
@@ -56,6 +56,10 @@
 #include <KDebug>
 #include <KIcon>
 #include <KStandardDirs>
+#include <KPluginFactory>
+#include <KPluginInfo>
+#include <KPluginLoader>
+#include <KServiceTypeTrader>
 
 #include <QDir>
 #include <QTimer>
@@ -153,6 +157,30 @@ void CleanerModel::loadCleaners()
         ++it;
     }
 
+    /// load plugin cleaners
+    KService::List offers = KServiceTypeTrader::self()->query( "KSaoLaJi/Cleaner" );
+    KService::List::ConstIterator it2 = offers.constBegin();
+    KService::List::ConstIterator end2 = offers.constEnd();
+    while ( it2 != end2 ) {
+        KService::Ptr service = *it2;
+        ++it2;
+
+        KPluginFactory* factory = KPluginLoader( service->library() ).factory();
+        if ( !factory ) {
+            kWarning() << "can not load plugin " << service->library();
+            continue;
+        }
+
+        KSaoLaJi::CleanerPlugin* plugin = factory->create<KSaoLaJi::CleanerPlugin>( 0 );
+        if ( !plugin ) {
+            kWarning() << "error loading plugin " << service->library();
+            continue;
+        }
+
+        kWarning() << "Load plugin: " << service->library();
+        addCleaner( plugin );
+    }
+
     /// load built-in cleaners
     {
         addCleaner( new CleanerArk );
@@ -160,7 +188,6 @@ void CleanerModel::loadCleaners()
         addCleaner( new CleanerCookie );
         addCleaner( new CleanerCookiePolicy );
         addCleaner( new CleanerDolphin );
-        addCleaner( new CleanerDummy );
         addCleaner( new CleanerFavicon );
         addCleaner( new CleanerFcitxRecord );
         addCleaner( new CleanerFlashPlayer );
@@ -205,7 +232,7 @@ void CleanerModel::loadCleaners()
     }
 }
 
-void CleanerModel::addCleaner( Cleaner* cleaner )
+void CleanerModel::addCleaner( KSaoLaJi::Cleaner* cleaner )
 {
     CleanerItem* item = new CleanerItem( cleaner );
     if ( item->youlaji() ) {

@@ -1,0 +1,18 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Service
+X-Choqok-Version=1
+Icon=konqueror
+ServiceTypes=KSaoLaJi/Cleaner
+X-KDE-Library=ksaolaji_cleaner_dummy
+X-KDE-PluginInfo-Author=Ni Hui
+X-KDE-PluginInfo-Email=shuizhuyuanluo@126.com
+X-KDE-PluginInfo-Name=ksaolaji_cleaner_dummy
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-Website=http://shuizhuyuanluo.blog.163.com
+X-KDE-PluginInfo-Category=Cleaner
+X-KDE-PluginInfo-Depends=
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+Name=KSaoLaJi Dummy Cleaner
+Comment=KSaoLaJi dummy cleaner

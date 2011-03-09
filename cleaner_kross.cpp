@@ -2,10 +2,9 @@
 
 #include <kross/core/action.h>
 
-CleanerKross::CleanerKross( QString file, QObject* parent )
-: Cleaner(parent)
+CleanerKross::CleanerKross( const QString& file )
 {
-    m_action = new Kross::Action( this, "KrossScript" );
+    m_action = new Kross::Action( 0, "KrossScript" );
     m_action->setFile( file );
     m_action->trigger();
     m_description = m_action->callFunction( "description" ).toString();
@@ -14,6 +13,7 @@ CleanerKross::CleanerKross( QString file, QObject* parent )
 
 CleanerKross::~CleanerKross()
 {
+    delete m_action;
 }
 
 QString CleanerKross::description()

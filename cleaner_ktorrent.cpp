@@ -5,8 +5,7 @@
 #include <KDebug>
 #include <KLocale>
 
-CleanerKTorrent::CleanerKTorrent( QObject* parent )
-: Cleaner(parent)
+CleanerKTorrent::CleanerKTorrent()
 {
 }
 

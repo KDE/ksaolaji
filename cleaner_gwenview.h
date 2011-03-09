@@ -3,11 +3,10 @@
 
 #include "cleaner.h"
 
-class CleanerGwenview : public Cleaner
+class CleanerGwenview : public KSaoLaJi::Cleaner
 {
-    Q_OBJECT
     public:
-        explicit CleanerGwenview( QObject* parent = 0 );
+        explicit CleanerGwenview();
         virtual ~CleanerGwenview();
         virtual QString description();
         virtual QString iconName();

@@ -3,11 +3,10 @@
 
 #include "cleaner.h"
 
-class CleanerWinetricksCache : public Cleaner
+class CleanerWinetricksCache : public KSaoLaJi::Cleaner
 {
-    Q_OBJECT
     public:
-        explicit CleanerWinetricksCache( QObject* parent = 0 );
+        explicit CleanerWinetricksCache();
         virtual ~CleanerWinetricksCache();
         virtual QString description();
         virtual QString iconName();

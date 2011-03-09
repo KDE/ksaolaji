@@ -3,11 +3,10 @@
 
 #include "cleaner.h"
 
-class CleanerFcitxRecord : public Cleaner
+class CleanerFcitxRecord : public KSaoLaJi::Cleaner
 {
-    Q_OBJECT
     public:
-        explicit CleanerFcitxRecord( QObject* parent = 0 );
+        explicit CleanerFcitxRecord();
         virtual ~CleanerFcitxRecord();
         virtual QString description();
         virtual QString iconName();

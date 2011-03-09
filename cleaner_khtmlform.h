@@ -3,11 +3,10 @@
 
 #include "cleaner.h"
 
-class CleanerKHTMLForm : public Cleaner
+class CleanerKHTMLForm : public KSaoLaJi::Cleaner
 {
-    Q_OBJECT
     public:
-        explicit CleanerKHTMLForm( QObject* parent = 0 );
+        explicit CleanerKHTMLForm();
         virtual ~CleanerKHTMLForm();
         virtual QString description();
         virtual QString iconName();

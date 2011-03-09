@@ -5,8 +5,7 @@
 #include <KDebug>
 #include <KLocale>
 
-CleanerKolourPaint::CleanerKolourPaint( QObject* parent )
-: Cleaner(parent)
+CleanerKolourPaint::CleanerKolourPaint()
 {
 }
 

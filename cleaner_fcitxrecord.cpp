@@ -6,8 +6,7 @@
 #include <QDir>
 #include <QFile>
 
-CleanerFcitxRecord::CleanerFcitxRecord( QObject* parent )
-: Cleaner(parent)
+CleanerFcitxRecord::CleanerFcitxRecord()
 {
 }
 

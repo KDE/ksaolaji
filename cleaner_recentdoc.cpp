@@ -4,8 +4,7 @@
 #include <KLocale>
 #include <KRecentDocument>
 
-CleanerRecentDoc::CleanerRecentDoc( QObject* parent )
-: Cleaner(parent)
+CleanerRecentDoc::CleanerRecentDoc()
 {
 }
 

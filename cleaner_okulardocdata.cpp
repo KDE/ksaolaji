@@ -9,8 +9,7 @@
 #include <QDomDocument>
 #include <QDomElement>
 
-CleanerOkularDocData::CleanerOkularDocData( QObject* parent )
-: Cleaner(parent)
+CleanerOkularDocData::CleanerOkularDocData()
 {
 }
 

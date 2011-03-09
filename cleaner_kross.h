@@ -4,11 +4,10 @@
 #include "cleaner.h"
 namespace Kross { class Action; }
 
-class CleanerKross : public Cleaner
+class CleanerKross : public KSaoLaJi::Cleaner
 {
-    Q_OBJECT
     public:
-        explicit CleanerKross( QString file, QObject* parent = 0 );
+        explicit CleanerKross( const QString& file );
         virtual ~CleanerKross();
         virtual QString description();
         virtual QString iconName();

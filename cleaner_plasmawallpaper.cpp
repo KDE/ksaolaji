@@ -11,8 +11,7 @@
 #include <QDir>
 #include <QFile>
 
-CleanerPlasmaWallpaper::CleanerPlasmaWallpaper( QObject* parent )
-: Cleaner(parent)
+CleanerPlasmaWallpaper::CleanerPlasmaWallpaper()
 {
 }
 

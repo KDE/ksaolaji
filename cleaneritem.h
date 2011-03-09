@@ -3,12 +3,12 @@
 
 #include <QString>
 
-class Cleaner;
+namespace KSaoLaJi { class Cleaner; }
 
 class CleanerItem
 {
     public:
-        explicit CleanerItem( Cleaner* cleaner );
+        explicit CleanerItem( KSaoLaJi::Cleaner* cleaner );
         ~CleanerItem();
         QString description() const;
         QString iconName() const;
@@ -17,7 +17,7 @@ class CleanerItem
         bool isChecked() const;
         void setChecked( bool isChecked );
     private:
-        Cleaner* m_cleaner;
+        KSaoLaJi::Cleaner* m_cleaner;
         bool m_youlaji;
         bool m_isChecked;
 };

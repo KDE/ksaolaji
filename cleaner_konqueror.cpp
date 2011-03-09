@@ -5,8 +5,7 @@
 #include <KDebug>
 #include <KLocale>
 
-CleanerKonqueror::CleanerKonqueror( QObject* parent )
-: Cleaner(parent)
+CleanerKonqueror::CleanerKonqueror()
 {
 }
 

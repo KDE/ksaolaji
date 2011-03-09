@@ -3,11 +3,10 @@
 
 #include "cleaner.h"
 
-class CleanerKPixmapCache : public Cleaner
+class CleanerKPixmapCache : public KSaoLaJi::Cleaner
 {
-    Q_OBJECT
     public:
-        explicit CleanerKPixmapCache( QObject* parent = 0 );
+        explicit CleanerKPixmapCache();
         virtual ~CleanerKPixmapCache();
         virtual QString description();
         virtual QString iconName();

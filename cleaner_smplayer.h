@@ -3,11 +3,10 @@
 
 #include "cleaner.h"
 
-class CleanerSMPlayer : public Cleaner
+class CleanerSMPlayer : public KSaoLaJi::Cleaner
 {
-    Q_OBJECT
     public:
-        explicit CleanerSMPlayer( QObject* parent = 0 );
+        explicit CleanerSMPlayer();
         virtual ~CleanerSMPlayer();
         virtual QString description();
         virtual QString iconName();

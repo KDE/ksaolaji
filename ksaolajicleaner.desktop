@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=ServiceType
+X-KDE-ServiceType=KSaoLaJi/Cleaner
+X-KDE-Derived=KPluginInfo
+Comment=KSaoLaJi Cleaner
+Comment[zh_CN]=KSaoLaJi 清扫器
+

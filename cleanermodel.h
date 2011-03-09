@@ -4,7 +4,7 @@
 #include <QAbstractListModel>
 #include <QList>
 
-class Cleaner;
+namespace KSaoLaJi { class Cleaner; }
 class CleanerItem;
 
 class CleanerModel : public QAbstractListModel
@@ -23,7 +23,7 @@ class CleanerModel : public QAbstractListModel
     private Q_SLOTS:
         void loadCleaners();
     private:
-        void addCleaner( Cleaner* cleaner );
+        void addCleaner( KSaoLaJi::Cleaner* cleaner );
     private:
         QList<CleanerItem*> m_modelItems;
         QList<CleanerItem*> m_cleanerItems;

@@ -5,8 +5,7 @@
 #include <KDebug>
 #include <KLocale>
 
-CleanerKrita::CleanerKrita( QObject* parent )
-: Cleaner(parent)
+CleanerKrita::CleanerKrita()
 {
 }
 

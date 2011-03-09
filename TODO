@@ -11,5 +11,6 @@ uc: cleaner package maybe *.saolaji
 uc: auto-selecting/sort according to clean counts
 uc: user-defined profiles
 
+4 multi-thread for performing checking and cleaning
 
 Let's kill all the wastes!!

@@ -10,8 +10,7 @@
 
 #include <QDir>
 
-CleanerKPixmapCache::CleanerKPixmapCache( QObject* parent )
-: Cleaner(parent)
+CleanerKPixmapCache::CleanerKPixmapCache()
 {
 }
 

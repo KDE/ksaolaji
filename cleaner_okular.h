@@ -3,11 +3,10 @@
 
 #include "cleaner.h"
 
-class CleanerOkular : public Cleaner
+class CleanerOkular : public KSaoLaJi::Cleaner
 {
-    Q_OBJECT
     public:
-        explicit CleanerOkular( QObject* parent = 0 );
+        explicit CleanerOkular();
         virtual ~CleanerOkular();
         virtual QString description();
         virtual QString iconName();

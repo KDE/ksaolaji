@@ -3,11 +3,10 @@
 
 #include "cleaner.h"
 
-class CleanerKolourPaint : public Cleaner
+class CleanerKolourPaint : public KSaoLaJi::Cleaner
 {
-    Q_OBJECT
     public:
-        explicit CleanerKolourPaint( QObject* parent = 0 );
+        explicit CleanerKolourPaint();
         virtual ~CleanerKolourPaint();
         virtual QString description();
         virtual QString iconName();

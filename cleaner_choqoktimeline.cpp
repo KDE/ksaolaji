@@ -7,8 +7,7 @@
 #include <QDir>
 #include <QFile>
 
-CleanerChoqokTimeline::CleanerChoqokTimeline( QObject* parent )
-: Cleaner(parent)
+CleanerChoqokTimeline::CleanerChoqokTimeline()
 {
 }
 

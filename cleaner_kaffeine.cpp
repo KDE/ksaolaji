@@ -5,8 +5,7 @@
 #include <KDebug>
 #include <KLocale>
 
-CleanerKaffeine::CleanerKaffeine( QObject* parent )
-: Cleaner(parent)
+CleanerKaffeine::CleanerKaffeine()
 {
 }
 

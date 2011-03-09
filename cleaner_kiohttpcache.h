@@ -3,11 +3,10 @@
 
 #include "cleaner.h"
 
-class CleanerKIOHttpCache : public Cleaner
+class CleanerKIOHttpCache : public KSaoLaJi::Cleaner
 {
-    Q_OBJECT
     public:
-        explicit CleanerKIOHttpCache( QObject* parent = 0 );
+        explicit CleanerKIOHttpCache();
         virtual ~CleanerKIOHttpCache();
         virtual QString description();
         virtual QString iconName();

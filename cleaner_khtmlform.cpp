@@ -11,8 +11,7 @@
 #include <QDir>
 #include <QFile>
 
-CleanerKHTMLForm::CleanerKHTMLForm( QObject* parent )
-: Cleaner(parent)
+CleanerKHTMLForm::CleanerKHTMLForm()
 {
 }
 

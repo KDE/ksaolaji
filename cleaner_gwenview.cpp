@@ -13,8 +13,7 @@
 #include <QDir>
 #include <QFile>
 
-CleanerGwenview::CleanerGwenview( QObject* parent )
-: Cleaner(parent)
+CleanerGwenview::CleanerGwenview()
 {
 }
 

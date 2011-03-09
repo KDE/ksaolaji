@@ -7,8 +7,7 @@
 #include <QFile>
 #include <QSettings>
 
-CleanerSMPlayer::CleanerSMPlayer( QObject* parent )
-: Cleaner(parent)
+CleanerSMPlayer::CleanerSMPlayer()
 {
 }
 

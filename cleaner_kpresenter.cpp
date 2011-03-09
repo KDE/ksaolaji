@@ -5,8 +5,7 @@
 #include <KDebug>
 #include <KLocale>
 
-CleanerKPresenter::CleanerKPresenter( QObject* parent )
-: Cleaner(parent)
+CleanerKPresenter::CleanerKPresenter()
 {
 }
 

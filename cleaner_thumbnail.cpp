@@ -10,8 +10,7 @@
 #include <QDir>
 #include <QFile>
 
-CleanerThumbnail::CleanerThumbnail( QObject* parent )
-: Cleaner(parent)
+CleanerThumbnail::CleanerThumbnail()
 {
 }
 

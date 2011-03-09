@@ -7,8 +7,7 @@
 #include <QDBusConnectionInterface>
 #include <QDBusInterface>
 
-CleanerCookie::CleanerCookie( QObject* parent )
-: Cleaner(parent)
+CleanerCookie::CleanerCookie()
 {
 }
 

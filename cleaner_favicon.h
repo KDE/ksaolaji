@@ -3,11 +3,10 @@
 
 #include "cleaner.h"
 
-class CleanerFavicon : public Cleaner
+class CleanerFavicon : public KSaoLaJi::Cleaner
 {
-    Q_OBJECT
     public:
-        explicit CleanerFavicon( QObject* parent = 0 );
+        explicit CleanerFavicon();
         virtual ~CleanerFavicon();
         virtual QString description();
         virtual QString iconName();

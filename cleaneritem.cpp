@@ -2,7 +2,7 @@
 
 #include "cleaner.h"
 
-CleanerItem::CleanerItem( Cleaner* cleaner )
+CleanerItem::CleanerItem( KSaoLaJi::Cleaner* cleaner )
 {
     m_cleaner = cleaner;
     m_youlaji = cleaner->youlaji();

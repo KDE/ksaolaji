@@ -11,8 +11,7 @@
 #include <QByteArray>
 #include <QDataStream>
 
-CleanerKTrash::CleanerKTrash( QObject* parent )
-: Cleaner(parent)
+CleanerKTrash::CleanerKTrash()
 {
 }
 

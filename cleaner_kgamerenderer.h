@@ -3,11 +3,10 @@
 
 #include "cleaner.h"
 
-class CleanerKGameRenderer : public Cleaner
+class CleanerKGameRenderer : public KSaoLaJi::Cleaner
 {
-    Q_OBJECT
     public:
-        explicit CleanerKGameRenderer( QObject* parent = 0 );
+        explicit CleanerKGameRenderer();
         virtual ~CleanerKGameRenderer();
         virtual QString description();
         virtual QString iconName();

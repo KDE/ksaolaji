@@ -10,8 +10,7 @@
 
 #include <QDir>
 
-CleanerFavicon::CleanerFavicon( QObject* parent )
-: Cleaner(parent)
+CleanerFavicon::CleanerFavicon()
 {
 }
 

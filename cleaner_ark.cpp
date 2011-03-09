@@ -5,8 +5,7 @@
 #include <KDebug>
 #include <KLocale>
 
-CleanerArk::CleanerArk( QObject* parent )
-: Cleaner(parent)
+CleanerArk::CleanerArk()
 {
 }
 

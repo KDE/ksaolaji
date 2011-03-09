@@ -3,11 +3,10 @@
 
 #include "cleaner.h"
 
-class CleanerPlasmaWallpaper : public Cleaner
+class CleanerPlasmaWallpaper : public KSaoLaJi::Cleaner
 {
-    Q_OBJECT
     public:
-        explicit CleanerPlasmaWallpaper( QObject* parent = 0 );
+        explicit CleanerPlasmaWallpaper();
         virtual ~CleanerPlasmaWallpaper();
         virtual QString description();
         virtual QString iconName();

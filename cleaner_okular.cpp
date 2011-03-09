@@ -5,8 +5,7 @@
 #include <KDebug>
 #include <KLocale>
 
-CleanerOkular::CleanerOkular( QObject* parent )
-: Cleaner(parent)
+CleanerOkular::CleanerOkular()
 {
 }
 

@@ -10,8 +10,7 @@
 
 #include <QDir>
 
-CleanerKIOHelpCache::CleanerKIOHelpCache( QObject* parent )
-: Cleaner(parent)
+CleanerKIOHelpCache::CleanerKIOHelpCache()
 {
 }
 

@@ -7,8 +7,7 @@
 #include <QDir>
 #include <QFile>
 
-CleanerKTorrentLog::CleanerKTorrentLog( QObject* parent )
-: Cleaner(parent)
+CleanerKTorrentLog::CleanerKTorrentLog()
 {
 }
 

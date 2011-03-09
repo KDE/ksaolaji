@@ -9,8 +9,7 @@
 #include <QDBusConnectionInterface>
 #include <QDBusInterface>
 
-CleanerKlipper::CleanerKlipper( QObject* parent )
-: Cleaner(parent)
+CleanerKlipper::CleanerKlipper()
 {
 }
 

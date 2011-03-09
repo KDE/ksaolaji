@@ -6,8 +6,7 @@
 #include <QDBusConnection>
 #include <QDBusMessage>
 
-CleanerKickoff::CleanerKickoff( QObject* parent )
-: Cleaner(parent)
+CleanerKickoff::CleanerKickoff()
 {
 }
 

@@ -5,8 +5,7 @@
 #include <KDebug>
 #include <KLocale>
 
-CleanerKGet::CleanerKGet( QObject* parent )
-: Cleaner(parent)
+CleanerKGet::CleanerKGet()
 {
 }
 

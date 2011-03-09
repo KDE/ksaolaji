@@ -3,11 +3,10 @@
 
 #include "cleaner.h"
 
-class CleanerVLC : public Cleaner
+class CleanerVLC : public KSaoLaJi::Cleaner
 {
-    Q_OBJECT
     public:
-        explicit CleanerVLC( QObject* parent = 0 );
+        explicit CleanerVLC();
         virtual ~CleanerVLC();
         virtual QString description();
         virtual QString iconName();

@@ -3,11 +3,10 @@
 
 #include "cleaner.h"
 
-class CleanerKDEGlobal : public Cleaner
+class CleanerKDEGlobal : public KSaoLaJi::Cleaner
 {
-    Q_OBJECT
     public:
-        explicit CleanerKDEGlobal( QObject* parent = 0 );
+        explicit CleanerKDEGlobal();
         virtual ~CleanerKDEGlobal();
         virtual QString description();
         virtual QString iconName();

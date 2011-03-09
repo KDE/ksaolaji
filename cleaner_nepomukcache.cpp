@@ -4,8 +4,7 @@
 #include <KLocale>
 #include <Nepomuk/ResourceManager>
 
-CleanerNepomukCache::CleanerNepomukCache( QObject* parent )
-: Cleaner(parent)
+CleanerNepomukCache::CleanerNepomukCache()
 {
 }
 

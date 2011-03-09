@@ -3,11 +3,10 @@
 
 #include "cleaner.h"
 
-class CleanerDolphin : public Cleaner
+class CleanerDolphin : public KSaoLaJi::Cleaner
 {
-    Q_OBJECT
     public:
-        explicit CleanerDolphin( QObject* parent = 0 );
+        explicit CleanerDolphin();
         virtual ~CleanerDolphin();
         virtual QString description();
         virtual QString iconName();
