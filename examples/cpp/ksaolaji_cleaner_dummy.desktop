@@ -1,7 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Service
-X-Choqok-Version=1
 Icon=konqueror
 ServiceTypes=KSaoLaJi/Cleaner
 X-KDE-Library=ksaolaji_cleaner_dummy

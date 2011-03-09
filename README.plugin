@@ -1,0 +1,16 @@
+KSaoLaJi supports cleaner plugin since 2011/3/9.
+
+How to write a cleaner?
+Implement the following four functions:
+
+string description() --- Return the description shown in the application cleaner list
+string iconName() --- Return the cleaner icon name or file path
+bool youlaji() --- Check whether the waste exists
+bool saolaji() --- Do the actual cleaning
+
+Examples can be found in examples/cpp sub-directory.
+
+HAPPY HACKING  :) ;) :>
+
+Ni Hui
+Last update: 2011/3/9
