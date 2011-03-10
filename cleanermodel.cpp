@@ -53,6 +53,8 @@
 #include "cleaner.h"
 #include "cleaneritem.h"
 
+#include "ksaolajiadaptor.h"
+
 #include <KDebug>
 #include <KIcon>
 #include <KStandardDirs>
@@ -67,7 +69,7 @@
 CleanerModel::CleanerModel( QObject* parent )
 : QAbstractListModel(parent)
 {
-    QTimer::singleShot( 0, this, SLOT(loadCleaners()) );
+    QTimer::singleShot( 0, this, SLOT(initialize()) );
 }
 
 CleanerModel::~CleanerModel()
@@ -145,7 +147,7 @@ void CleanerModel::saolaji()
     refresh();
 }
 
-void CleanerModel::loadCleaners()
+void CleanerModel::initialize()
 {
     /// load kross cleaners
     QDir krossdir( KStandardDirs::locateLocal( "appdata", "kross" ) );
@@ -230,6 +232,12 @@ void CleanerModel::loadCleaners()
         addCleaner( new CleanerVLC );
         addCleaner( new CleanerWinetricksCache );
     }
+
+    /// setup dbus adaptor
+    new KSaoLaJiAdaptor( this );
+    QDBusConnection dbus = QDBusConnection::sessionBus();
+    dbus.registerObject( "/KSaoLaJi", this );
+    dbus.registerService( "org.foo.ksaolaji" );
 }
 
 void CleanerModel::addCleaner( KSaoLaJi::Cleaner* cleaner )

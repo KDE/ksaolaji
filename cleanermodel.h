@@ -21,7 +21,7 @@ class CleanerModel : public QAbstractListModel
         void refresh();
         void saolaji();
     private Q_SLOTS:
-        void loadCleaners();
+        void initialize();
     private:
         void addCleaner( KSaoLaJi::Cleaner* cleaner );
     private:

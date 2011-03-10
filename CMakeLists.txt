@@ -40,6 +40,14 @@ set(ksaolaji_SRCS
     mainwindow.cpp
 )
 
+qt4_add_dbus_adaptor(ksaolaji_SRCS
+    org.kde.ksaolaji.xml
+    cleanermodel.h
+    CleanerModel
+    ksaolajiadaptor
+    KSaoLaJiAdaptor
+)
+
 kde4_add_executable(ksaolaji ${ksaolaji_SRCS})
 
 target_link_libraries(ksaolaji
