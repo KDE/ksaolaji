@@ -1,4 +1,4 @@
-project(ksaolaji)
+project(ksaolaji_cleaner_dummy)
 cmake_minimum_required(VERSION 2.6)
 find_package(KDE4 REQUIRED 4.5)
 
