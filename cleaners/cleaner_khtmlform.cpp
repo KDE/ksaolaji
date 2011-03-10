@@ -19,6 +19,11 @@ CleanerKHTMLForm::~CleanerKHTMLForm()
 {
 }
 
+QString CleanerKHTMLForm::uniqueName()
+{
+    return QString( "khtml_form_completions" );
+}
+
 QString CleanerKHTMLForm::description()
 {
     return i18n( "KHTML form completions" );

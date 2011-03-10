@@ -15,6 +15,11 @@ CleanerVLC::~CleanerVLC()
 {
 }
 
+QString CleanerVLC::uniqueName()
+{
+    return QString( "vlc_recent_files_and_urls" );
+}
+
 QString CleanerVLC::description()
 {
     return i18n( "VLC recent files and urls" );

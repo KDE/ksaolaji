@@ -13,6 +13,11 @@ CleanerKonqLocBar::~CleanerKonqLocBar()
 {
 }
 
+QString CleanerKonqLocBar::uniqueName()
+{
+    return QString( "konqueror_location_bar_contents_and_icon_cache" );
+}
+
 QString CleanerKonqLocBar::description()
 {
     return i18n( "Konqueror location bar contents and icon cache" );

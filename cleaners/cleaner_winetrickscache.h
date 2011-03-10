@@ -8,6 +8,7 @@ class CleanerWinetricksCache : public KSaoLaJi::Cleaner
     public:
         explicit CleanerWinetricksCache();
         virtual ~CleanerWinetricksCache();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

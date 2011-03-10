@@ -12,6 +12,11 @@ CleanerNepomukCache::~CleanerNepomukCache()
 {
 }
 
+QString CleanerNepomukCache::uniqueName()
+{
+    return QString( "nepomuk_resource_local_cache" );
+}
+
 QString CleanerNepomukCache::description()
 {
     return i18n( "Nepomuk resource local cache" );

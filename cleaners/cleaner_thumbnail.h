@@ -8,6 +8,7 @@ class CleanerThumbnail : public KSaoLaJi::Cleaner
     public:
         explicit CleanerThumbnail();
         virtual ~CleanerThumbnail();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

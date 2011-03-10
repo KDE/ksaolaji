@@ -14,6 +14,11 @@ CleanerFcitxRecord::~CleanerFcitxRecord()
 {
 }
 
+QString CleanerFcitxRecord::uniqueName()
+{
+    return QString( "fcitx_input_record" );
+}
+
 QString CleanerFcitxRecord::description()
 {
     return i18n( "Fcitx input record" );

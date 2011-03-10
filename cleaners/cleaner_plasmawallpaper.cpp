@@ -19,6 +19,11 @@ CleanerPlasmaWallpaper::~CleanerPlasmaWallpaper()
 {
 }
 
+QString CleanerPlasmaWallpaper::uniqueName()
+{
+    return QString( "plasma_wallpaper_image_cache" );
+}
+
 QString CleanerPlasmaWallpaper::description()
 {
     return i18n( "Plasma wallpaper image cache" );

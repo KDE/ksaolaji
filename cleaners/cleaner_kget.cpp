@@ -13,6 +13,11 @@ CleanerKGet::~CleanerKGet()
 {
 }
 
+QString CleanerKGet::uniqueName()
+{
+    return QString( "kget_recent_files_and_last_directory" );
+}
+
 QString CleanerKGet::description()
 {
     return i18n( "KGet recent files and last directory" );

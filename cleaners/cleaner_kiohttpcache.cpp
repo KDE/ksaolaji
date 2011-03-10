@@ -14,6 +14,11 @@ CleanerKIOHttpCache::~CleanerKIOHttpCache()
 {
 }
 
+QString CleanerKIOHttpCache::uniqueName()
+{
+    return QString( "kde_http_cache" );
+}
+
 QString CleanerKIOHttpCache::description()
 {
     return i18n( "KDE HTTP cache" );

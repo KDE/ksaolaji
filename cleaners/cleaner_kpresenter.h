@@ -8,6 +8,7 @@ class CleanerKPresenter : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKPresenter();
         virtual ~CleanerKPresenter();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

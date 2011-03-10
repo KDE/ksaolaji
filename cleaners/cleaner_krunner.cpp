@@ -17,6 +17,11 @@ CleanerKRunner::~CleanerKRunner()
 {
 }
 
+QString CleanerKRunner::uniqueName()
+{
+    return QString( "krunner_queries_and_history" );
+}
+
 QString CleanerKRunner::description()
 {
     return i18n( "KRunner queries and history" );

@@ -21,6 +21,11 @@ CleanerGwenview::~CleanerGwenview()
 {
 }
 
+QString CleanerGwenview::uniqueName()
+{
+    return QString( "gwenview_recent_files_and_urls" );
+}
+
 QString CleanerGwenview::description()
 {
     return i18n( "Gwenview recent files and urls" );

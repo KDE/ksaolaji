@@ -13,6 +13,11 @@ CleanerKPresenter::~CleanerKPresenter()
 {
 }
 
+QString CleanerKPresenter::uniqueName()
+{
+    return QString( "kpresenter_recent_files_and_dirs" );
+}
+
 QString CleanerKPresenter::description()
 {
     return i18n( "KPresenter recent files and dirs" );

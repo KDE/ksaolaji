@@ -13,6 +13,11 @@ CleanerOkular::~CleanerOkular()
 {
 }
 
+QString CleanerOkular::uniqueName()
+{
+    return QString( "okular_recent_files" );
+}
+
 QString CleanerOkular::description()
 {
     return i18n( "Okular recent files" );

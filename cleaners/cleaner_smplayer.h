@@ -8,6 +8,7 @@ class CleanerSMPlayer : public KSaoLaJi::Cleaner
     public:
         explicit CleanerSMPlayer();
         virtual ~CleanerSMPlayer();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

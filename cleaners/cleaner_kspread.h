@@ -8,6 +8,7 @@ class CleanerKSpread : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKSpread();
         virtual ~CleanerKSpread();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

@@ -7,6 +7,7 @@ CleanerKross::CleanerKross( const QString& file )
     m_action = new Kross::Action( 0, "KrossScript" );
     m_action->setFile( file );
     m_action->trigger();
+    m_uniqueName = m_action->callFunction( "uniqueName" ).toString();
     m_description = m_action->callFunction( "description" ).toString();
     m_iconName = m_action->callFunction( "iconName" ).toString();
 }
@@ -14,6 +15,11 @@ CleanerKross::CleanerKross( const QString& file )
 CleanerKross::~CleanerKross()
 {
     delete m_action;
+}
+
+QString CleanerKross::uniqueName()
+{
+    return m_uniqueName;
 }
 
 QString CleanerKross::description()

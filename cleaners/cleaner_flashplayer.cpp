@@ -18,6 +18,11 @@ CleanerFlashPlayer::~CleanerFlashPlayer()
 {
 }
 
+QString CleanerFlashPlayer::uniqueName()
+{
+    return QString( "adobe_flash_player_site_cookies_and_settings" );
+}
+
 QString CleanerFlashPlayer::description()
 {
     return i18n( "Adobe flash player site cookies and settings" );

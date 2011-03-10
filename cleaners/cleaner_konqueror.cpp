@@ -13,6 +13,11 @@ CleanerKonqueror::~CleanerKonqueror()
 {
 }
 
+QString CleanerKonqueror::uniqueName()
+{
+    return QString( "konqueror_open_with_history_and_recent_files" );
+}
+
 QString CleanerKonqueror::description()
 {
     return i18n( "Konqueror open-with history and recent files" );

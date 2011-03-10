@@ -8,6 +8,7 @@ class CleanerDolphin : public KSaoLaJi::Cleaner
     public:
         explicit CleanerDolphin();
         virtual ~CleanerDolphin();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

@@ -8,6 +8,7 @@ class CleanerKDEGlobal : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKDEGlobal();
         virtual ~CleanerKDEGlobal();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

@@ -8,6 +8,7 @@ class CleanerNepomukCache : public KSaoLaJi::Cleaner
     public:
         explicit CleanerNepomukCache();
         virtual ~CleanerNepomukCache();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

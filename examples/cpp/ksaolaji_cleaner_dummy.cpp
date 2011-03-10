@@ -14,6 +14,11 @@ CleanerDummy::~CleanerDummy()
 {
 }
 
+QString CleanerDummy::uniqueName()
+{
+    return QString( "dummy_plugin" );
+}
+
 QString CleanerDummy::description()
 {
     return i18n( "Dummy = =!!!" );

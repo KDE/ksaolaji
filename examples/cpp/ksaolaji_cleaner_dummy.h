@@ -9,6 +9,7 @@ class CleanerDummy : public KSaoLaJi::CleanerPlugin
     public:
         explicit CleanerDummy( QObject* parent, const QVariantList& args );
         virtual ~CleanerDummy();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
         virtual bool youlaji();

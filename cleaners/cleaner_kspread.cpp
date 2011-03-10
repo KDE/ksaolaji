@@ -13,6 +13,11 @@ CleanerKSpread::~CleanerKSpread()
 {
 }
 
+QString CleanerKSpread::uniqueName()
+{
+    return QString( "kspread_recent_files_and_dirs" );
+}
+
 QString CleanerKSpread::description()
 {
     return i18n( "KSpread recent files and dirs" );

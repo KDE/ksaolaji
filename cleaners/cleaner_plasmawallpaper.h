@@ -8,6 +8,7 @@ class CleanerPlasmaWallpaper : public KSaoLaJi::Cleaner
     public:
         explicit CleanerPlasmaWallpaper();
         virtual ~CleanerPlasmaWallpaper();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

@@ -17,6 +17,11 @@ CleanerOkularDocData::~CleanerOkularDocData()
 {
 }
 
+QString CleanerOkularDocData::uniqueName()
+{
+    return QString( "okular_orphaned_doc_notes_and_viewport_data" );
+}
+
 QString CleanerOkularDocData::description()
 {
     return i18n( "Okular orphaned doc notes and viewport data" );

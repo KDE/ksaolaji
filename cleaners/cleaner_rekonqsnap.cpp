@@ -19,6 +19,11 @@ CleanerRekonqSnap::~CleanerRekonqSnap()
 {
 }
 
+QString CleanerRekonqSnap::uniqueName()
+{
+    return QString( "rekonq_webpage_snapshot_images" );
+}
+
 QString CleanerRekonqSnap::description()
 {
     return i18n( "Rekonq webpage snapshot images" );

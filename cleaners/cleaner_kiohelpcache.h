@@ -8,6 +8,7 @@ class CleanerKIOHelpCache : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKIOHelpCache();
         virtual ~CleanerKIOHelpCache();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

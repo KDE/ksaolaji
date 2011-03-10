@@ -18,6 +18,11 @@ CleanerKPixmapCache::~CleanerKPixmapCache()
 {
 }
 
+QString CleanerKPixmapCache::uniqueName()
+{
+    return QString( "kde_pixmap_cache" );
+}
+
 QString CleanerKPixmapCache::description()
 {
     return i18n( "KDE pixmap cache" );

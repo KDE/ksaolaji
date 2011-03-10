@@ -14,6 +14,11 @@ CleanerRekonqHistory::~CleanerRekonqHistory()
 {
 }
 
+QString CleanerRekonqHistory::uniqueName()
+{
+    return QString( "rekonq_history" );
+}
+
 QString CleanerRekonqHistory::description()
 {
     return i18n( "Rekonq history" );

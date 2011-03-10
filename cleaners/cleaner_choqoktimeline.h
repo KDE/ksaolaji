@@ -8,6 +8,7 @@ class CleanerChoqokTimeline : public KSaoLaJi::Cleaner
     public:
         explicit CleanerChoqokTimeline();
         virtual ~CleanerChoqokTimeline();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

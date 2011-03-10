@@ -8,6 +8,7 @@ class CleanerCookiePolicy : public KSaoLaJi::Cleaner
     public:
         explicit CleanerCookiePolicy();
         virtual ~CleanerCookiePolicy();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

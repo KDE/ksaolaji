@@ -19,6 +19,11 @@ CleanerKTrash::~CleanerKTrash()
 {
 }
 
+QString CleanerKTrash::uniqueName()
+{
+    return QString( "kde_trash_bin" );
+}
+
 QString CleanerKTrash::description()
 {
     return i18n( "KDE trash bin" );

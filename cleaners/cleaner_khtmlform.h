@@ -8,6 +8,7 @@ class CleanerKHTMLForm : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKHTMLForm();
         virtual ~CleanerKHTMLForm();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

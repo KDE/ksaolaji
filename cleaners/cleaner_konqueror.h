@@ -8,6 +8,7 @@ class CleanerKonqueror : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKonqueror();
         virtual ~CleanerKonqueror();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

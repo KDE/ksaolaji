@@ -15,6 +15,11 @@ CleanerKTorrentLog::~CleanerKTorrentLog()
 {
 }
 
+QString CleanerKTorrentLog::uniqueName()
+{
+    return QString( "ktorrent_log_files" );
+}
+
 QString CleanerKTorrentLog::description()
 {
     return i18n( "KTorrent log files" );

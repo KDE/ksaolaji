@@ -18,6 +18,11 @@ CleanerKIOHelpCache::~CleanerKIOHelpCache()
 {
 }
 
+QString CleanerKIOHelpCache::uniqueName()
+{
+    return QString( "kde_help_handbook_cache" );
+}
+
 QString CleanerKIOHelpCache::description()
 {
     return i18n( "KDE help handbook cache" );

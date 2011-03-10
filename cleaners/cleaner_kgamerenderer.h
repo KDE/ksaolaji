@@ -8,6 +8,7 @@ class CleanerKGameRenderer : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKGameRenderer();
         virtual ~CleanerKGameRenderer();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

@@ -14,6 +14,11 @@ CleanerKickoff::~CleanerKickoff()
 {
 }
 
+QString CleanerKickoff::uniqueName()
+{
+    return QString( "kickoff_recent_docs_and_apps" );
+}
+
 QString CleanerKickoff::description()
 {
     return i18n( "Kickoff recent docs and apps" );

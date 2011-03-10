@@ -8,6 +8,7 @@ class CleanerKWord : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKWord();
         virtual ~CleanerKWord();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

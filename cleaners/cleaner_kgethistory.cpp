@@ -18,6 +18,11 @@ CleanerKGetHistory::~CleanerKGetHistory()
 {
 }
 
+QString CleanerKGetHistory::uniqueName()
+{
+    return QString( "kget_xml_sqlite_nepomuk_transfer_history" );
+}
+
 QString CleanerKGetHistory::description()
 {
     return i18n( "KGet xml/sqlite/nepomuk transfer history" );

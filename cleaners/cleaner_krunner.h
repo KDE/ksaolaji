@@ -8,6 +8,7 @@ class CleanerKRunner : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKRunner();
         virtual ~CleanerKRunner();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

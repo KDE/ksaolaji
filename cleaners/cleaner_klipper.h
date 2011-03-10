@@ -8,6 +8,7 @@ class CleanerKlipper : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKlipper();
         virtual ~CleanerKlipper();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

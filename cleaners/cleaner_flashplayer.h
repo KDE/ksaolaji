@@ -8,6 +8,7 @@ class CleanerFlashPlayer : public KSaoLaJi::Cleaner
     public:
         explicit CleanerFlashPlayer();
         virtual ~CleanerFlashPlayer();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

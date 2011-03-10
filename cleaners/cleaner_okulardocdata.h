@@ -8,6 +8,7 @@ class CleanerOkularDocData : public KSaoLaJi::Cleaner
     public:
         explicit CleanerOkularDocData();
         virtual ~CleanerOkularDocData();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

@@ -13,6 +13,11 @@ CleanerKolourPaint::~CleanerKolourPaint()
 {
 }
 
+QString CleanerKolourPaint::uniqueName()
+{
+    return QString( "kolourpaint_recent_files_and_image_size_info" );
+}
+
 QString CleanerKolourPaint::description()
 {
     return i18n( "Kolurpaint recent files and image size info" );

@@ -13,6 +13,11 @@ CleanerKaffeine::~CleanerKaffeine()
 {
 }
 
+QString CleanerKaffeine::uniqueName()
+{
+    return QString( "kaffeine_recent_files" );
+}
+
 QString CleanerKaffeine::description()
 {
     return i18n( "Kaffeine recent files" );

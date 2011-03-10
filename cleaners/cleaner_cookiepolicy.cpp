@@ -17,6 +17,11 @@ CleanerCookiePolicy::~CleanerCookiePolicy()
 {
 }
 
+QString CleanerCookiePolicy::uniqueName()
+{
+    return QString( "saved_site_cookie_policies" );
+}
+
 QString CleanerCookiePolicy::description()
 {
     return i18n( "Saved site cookie policies" );

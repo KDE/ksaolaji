@@ -8,6 +8,7 @@ class CleanerKMid : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKMid();
         virtual ~CleanerKMid();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

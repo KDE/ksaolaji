@@ -8,6 +8,7 @@ class CleanerVLC : public KSaoLaJi::Cleaner
     public:
         explicit CleanerVLC();
         virtual ~CleanerVLC();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

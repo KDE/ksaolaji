@@ -18,6 +18,11 @@ CleanerWinetricksCache::~CleanerWinetricksCache()
 {
 }
 
+QString CleanerWinetricksCache::uniqueName()
+{
+    return QString( "winetricks_downloads_cache" );
+}
+
 QString CleanerWinetricksCache::description()
 {
     return i18n( "Winetricks downloads cache" );

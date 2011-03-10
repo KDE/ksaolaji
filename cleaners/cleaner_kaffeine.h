@@ -8,6 +8,7 @@ class CleanerKaffeine : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKaffeine();
         virtual ~CleanerKaffeine();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

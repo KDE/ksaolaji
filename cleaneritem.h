@@ -16,6 +16,7 @@ class CleanerItem
         bool saolaji();
         bool isChecked() const;
         void setChecked( bool isChecked );
+        int useCount() const;
     private:
         KSaoLaJi::Cleaner* m_cleaner;
         bool m_youlaji;

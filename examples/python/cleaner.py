@@ -2,6 +2,9 @@
 
 import os.path
 
+def uniqueName():
+    return "kross_python_example"
+
 def description():
     return "##### KROSS PYTHON EXAMPLE #####"
 

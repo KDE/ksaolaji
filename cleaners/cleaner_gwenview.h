@@ -8,6 +8,7 @@ class CleanerGwenview : public KSaoLaJi::Cleaner
     public:
         explicit CleanerGwenview();
         virtual ~CleanerGwenview();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

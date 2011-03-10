@@ -13,6 +13,11 @@ CleanerKMid::~CleanerKMid()
 {
 }
 
+QString CleanerKMid::uniqueName()
+{
+    return QString( "kmid_recent_files" );
+}
+
 QString CleanerKMid::description()
 {
     return i18n( "KMid recent files" );

@@ -13,6 +13,11 @@ CleanerKDEGlobal::~CleanerKDEGlobal()
 {
 }
 
+QString CleanerKDEGlobal::uniqueName()
+{
+    return QString( "kde_global_history_items_and_recent_urls" );
+}
+
 QString CleanerKDEGlobal::description()
 {
     return i18n( "KDE global history items and recent urls" );

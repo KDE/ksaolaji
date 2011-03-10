@@ -8,6 +8,7 @@ class CleanerKate : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKate();
         virtual ~CleanerKate();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

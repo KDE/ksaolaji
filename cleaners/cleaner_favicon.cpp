@@ -18,6 +18,11 @@ CleanerFavicon::~CleanerFavicon()
 {
 }
 
+QString CleanerFavicon::uniqueName()
+{
+    return QString( "cached_site_favicons" );
+}
+
 QString CleanerFavicon::description()
 {
     return i18n( "Cached site favicons" );

@@ -9,6 +9,7 @@ class CleanerKross : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKross( const QString& file );
         virtual ~CleanerKross();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 
@@ -18,6 +19,7 @@ class CleanerKross : public KSaoLaJi::Cleaner
         virtual bool saolaji();
     private:
         Kross::Action* m_action;
+        QString m_uniqueName;
         QString m_description;
         QString m_iconName;
 };

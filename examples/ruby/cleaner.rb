@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby
 
+def uniqueName
+    return "kross_ruby_example"
+end
+
 def description
     return "##### KROSS RUBY EXAMPLE #####"
 end

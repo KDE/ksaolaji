@@ -12,6 +12,11 @@ CleanerRecentDoc::~CleanerRecentDoc()
 {
 }
 
+QString CleanerRecentDoc::uniqueName()
+{
+    return QString( "recent_accessed_documents" );
+}
+
 QString CleanerRecentDoc::description()
 {
     return i18n( "Recent accessed documents" );

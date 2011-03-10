@@ -8,6 +8,7 @@ class CleanerRecentDoc : public KSaoLaJi::Cleaner
     public:
         explicit CleanerRecentDoc();
         virtual ~CleanerRecentDoc();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

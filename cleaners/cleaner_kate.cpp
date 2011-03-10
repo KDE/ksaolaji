@@ -13,6 +13,11 @@ CleanerKate::~CleanerKate()
 {
 }
 
+QString CleanerKate::uniqueName()
+{
+    return QString( "kate_search_replace_patterns_and_recent_files" );
+}
+
 QString CleanerKate::description()
 {
     return i18n( "Kate search replace patterns and recent files" );

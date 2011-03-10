@@ -13,6 +13,11 @@ CleanerKWord::~CleanerKWord()
 {
 }
 
+QString CleanerKWord::uniqueName()
+{
+    return QString( "kword_recent_files_and_dirs" );
+}
+
 QString CleanerKWord::description()
 {
     return i18n( "KWord recent files and dirs" );

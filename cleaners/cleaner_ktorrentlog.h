@@ -8,6 +8,7 @@ class CleanerKTorrentLog : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKTorrentLog();
         virtual ~CleanerKTorrentLog();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

@@ -15,6 +15,11 @@ CleanerChoqokTimeline::~CleanerChoqokTimeline()
 {
 }
 
+QString CleanerChoqokTimeline::uniqueName()
+{
+    return QString( "choqok_timeline_backup" );
+}
+
 QString CleanerChoqokTimeline::description()
 {
     return i18n( "Choqok timeline backup" );

@@ -17,6 +17,11 @@ CleanerKlipper::~CleanerKlipper()
 {
 }
 
+QString CleanerKlipper::uniqueName()
+{
+    return QString( "klipper_history" );
+}
+
 QString CleanerKlipper::description()
 {
     return i18n( "Klipper history" );

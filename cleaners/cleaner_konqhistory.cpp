@@ -17,6 +17,11 @@ CleanerKonqHistory::~CleanerKonqHistory()
 {
 }
 
+QString CleanerKonqHistory::uniqueName()
+{
+    return QString( "konqueror_history" );
+}
+
 QString CleanerKonqHistory::description()
 {
     return i18n( "Konqueror history" );

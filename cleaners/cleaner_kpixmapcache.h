@@ -8,6 +8,7 @@ class CleanerKPixmapCache : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKPixmapCache();
         virtual ~CleanerKPixmapCache();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

@@ -13,6 +13,11 @@ CleanerKTorrent::~CleanerKTorrent()
 {
 }
 
+QString CleanerKTorrent::uniqueName()
+{
+    return QString( "ktorrent_recent_files_and_last_save_dir" );
+}
+
 QString CleanerKTorrent::description()
 {
     return i18n( "KTorrent recent files and last save dir" );

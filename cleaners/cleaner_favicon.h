@@ -8,6 +8,7 @@ class CleanerFavicon : public KSaoLaJi::Cleaner
     public:
         explicit CleanerFavicon();
         virtual ~CleanerFavicon();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

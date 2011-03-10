@@ -8,6 +8,7 @@ class CleanerKrita : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKrita();
         virtual ~CleanerKrita();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

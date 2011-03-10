@@ -8,6 +8,7 @@ class CleanerKonqLocBar : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKonqLocBar();
         virtual ~CleanerKonqLocBar();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

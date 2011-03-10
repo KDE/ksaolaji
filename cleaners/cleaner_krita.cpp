@@ -13,6 +13,11 @@ CleanerKrita::~CleanerKrita()
 {
 }
 
+QString CleanerKrita::uniqueName()
+{
+    return QString( "krita_recent_files_and_dirs" );
+}
+
 QString CleanerKrita::description()
 {
     return i18n( "Krita recent files and dirs" );

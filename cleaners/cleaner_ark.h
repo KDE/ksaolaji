@@ -8,6 +8,7 @@ class CleanerArk : public KSaoLaJi::Cleaner
     public:
         explicit CleanerArk();
         virtual ~CleanerArk();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

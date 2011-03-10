@@ -8,6 +8,7 @@ class CleanerKGet : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKGet();
         virtual ~CleanerKGet();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

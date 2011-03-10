@@ -15,6 +15,11 @@ CleanerSMPlayer::~CleanerSMPlayer()
 {
 }
 
+QString CleanerSMPlayer::uniqueName()
+{
+    return QString( "smplayer_recent_files_and_urls" );
+}
+
 QString CleanerSMPlayer::description()
 {
     return i18n( "SMPlayer recent files and urls" );

@@ -8,6 +8,7 @@ class CleanerRekonqSnap : public KSaoLaJi::Cleaner
     public:
         explicit CleanerRekonqSnap();
         virtual ~CleanerRekonqSnap();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

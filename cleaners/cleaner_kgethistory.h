@@ -8,6 +8,7 @@ class CleanerKGetHistory : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKGetHistory();
         virtual ~CleanerKGetHistory();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

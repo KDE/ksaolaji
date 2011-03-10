@@ -18,6 +18,11 @@ CleanerKGameRenderer::~CleanerKGameRenderer()
 {
 }
 
+QString CleanerKGameRenderer::uniqueName()
+{
+    return QString( "kde_game_theme_cache" );
+}
+
 QString CleanerKGameRenderer::description()
 {
     return i18n( "KDE game theme cache" );

@@ -10,6 +10,7 @@ class Cleaner
     public:
         explicit Cleaner() {}
         virtual ~Cleaner() {}
+        virtual QString uniqueName() = 0;
         virtual QString description() = 0;
         virtual QString iconName() = 0;
 

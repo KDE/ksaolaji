@@ -13,6 +13,11 @@ CleanerDolphin::~CleanerDolphin()
 {
 }
 
+QString CleanerDolphin::uniqueName()
+{
+    return QString( "dolphin_open_with_history" );
+}
+
 QString CleanerDolphin::description()
 {
     return i18n( "Dolphin open-with history" );

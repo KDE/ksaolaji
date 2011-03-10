@@ -8,6 +8,7 @@ class CleanerKTrash : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKTrash();
         virtual ~CleanerKTrash();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

@@ -15,6 +15,11 @@ CleanerCookie::~CleanerCookie()
 {
 }
 
+QString CleanerCookie::uniqueName()
+{
+    return QString( "saved_site_cookies" );
+}
+
 QString CleanerCookie::description()
 {
     return i18n( "Saved site cookies" );

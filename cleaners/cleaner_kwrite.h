@@ -8,6 +8,7 @@ class CleanerKWrite : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKWrite();
         virtual ~CleanerKWrite();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

@@ -13,6 +13,11 @@ CleanerArk::~CleanerArk()
 {
 }
 
+QString CleanerArk::uniqueName()
+{
+    return QString( "ark_recent_files" );
+}
+
 QString CleanerArk::description()
 {
     return i18n( "Ark recent files" );

@@ -8,6 +8,7 @@ class CleanerFcitxRecord : public KSaoLaJi::Cleaner
     public:
         explicit CleanerFcitxRecord();
         virtual ~CleanerFcitxRecord();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

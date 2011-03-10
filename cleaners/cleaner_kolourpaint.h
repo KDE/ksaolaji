@@ -8,6 +8,7 @@ class CleanerKolourPaint : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKolourPaint();
         virtual ~CleanerKolourPaint();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

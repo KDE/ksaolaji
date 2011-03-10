@@ -8,6 +8,7 @@ class CleanerKickoff : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKickoff();
         virtual ~CleanerKickoff();
+        virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();
 

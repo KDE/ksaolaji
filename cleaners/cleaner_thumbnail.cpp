@@ -18,6 +18,11 @@ CleanerThumbnail::~CleanerThumbnail()
 {
 }
 
+QString CleanerThumbnail::uniqueName()
+{
+    return QString( "image_thumbnails" );
+}
+
 QString CleanerThumbnail::description()
 {
     return i18n( "Image thumbnails" );

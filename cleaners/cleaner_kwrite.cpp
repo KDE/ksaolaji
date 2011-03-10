@@ -13,6 +13,11 @@ CleanerKWrite::~CleanerKWrite()
 {
 }
 
+QString CleanerKWrite::uniqueName()
+{
+    return QString( "kwrite_search_replace_patterns_and_recent_files" );
+}
+
 QString CleanerKWrite::description()
 {
     return i18n( "KWrite search replace patterns and recent files" );
