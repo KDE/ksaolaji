@@ -7,5 +7,5 @@ XGETTEXT="xgettext --copyright-holder=This_file_is_part_of_KSaoLaJi --from-code=
 echo 'i18nc("NAME OF TRANSLATORS","Your names");' >> rc.cpp
 echo 'i18nc("EMAIL OF TRANSLATORS","Your emails");' >> rc.cpp 
 
-$XGETTEXT *.cpp rc.cpp -o ksaolaji.pot
+$XGETTEXT *.cpp cleaners/*.cpp rc.cpp -o ksaolaji.pot
 rm -f rc.cpp

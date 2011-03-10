@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2011-03-03 23:21+0800\n"
+"POT-Creation-Date: 2011-03-10 12:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,166 +16,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: cleaner_ark.cpp:19
-msgid "Ark recent files"
-msgstr ""
-
-#: cleaner_cookie.cpp:21
-msgid "Saved site cookies"
-msgstr ""
-
-#: cleaner_cookiepolicy.cpp:23
-msgid "Saved site cookie policies"
-msgstr ""
-
-#: cleaner_dolphin.cpp:19
-msgid "Dolphin open-with history"
-msgstr ""
-
-#: cleaner_dummy.cpp:17
-msgid "Dummy = =!!!"
-msgstr ""
-
-#: cleaner_favicon.cpp:24
-msgid "Cached site favicons"
-msgstr ""
-
-#: cleaner_flashplayer.cpp:24
-msgid "Adobe flash player site cookies and settings"
-msgstr ""
-
-#: cleaner_gwenview.cpp:27
-msgid "Gwenview recent files and urls"
-msgstr ""
-
-#: cleaner_kaffeine.cpp:19
-msgid "Kaffeine recent files"
-msgstr ""
-
-#: cleaner_kate.cpp:19
-msgid "Kate search replace patterns and recent files"
-msgstr ""
-
-#: cleaner_kdeglobal.cpp:19
-msgid "KDE global history items and recent urls"
-msgstr ""
-
-#: cleaner_kgamerenderer.cpp:24
-msgid "KDE game theme cache"
-msgstr ""
-
-#: cleaner_khtmlform.cpp:25
-msgid "KHTML form completions"
-msgstr ""
-
-#: cleaner_kickoff.cpp:20
-msgid "Kickoff recent docs and apps"
-msgstr ""
-
-#: cleaner_kiohelpcache.cpp:24
-msgid "KDE help handbook cache"
-msgstr ""
-
-#: cleaner_kiohttpcache.cpp:20
-msgid "KDE HTTP cache"
-msgstr ""
-
-#: cleaner_klipper.cpp:23
-msgid "Klipper history"
-msgstr ""
-
-#: cleaner_kmid.cpp:19
-msgid "KMid recent files"
-msgstr ""
-
-#: cleaner_kolourpaint.cpp:19
-msgid "Kolurpaint recent files and image size info"
-msgstr ""
-
-#: cleaner_konqhistory.cpp:23
-msgid "Konqueror history"
-msgstr ""
-
-#: cleaner_konqlocbar.cpp:19
-msgid "Konqueror location bar contents and icon cache"
-msgstr ""
-
-#: cleaner_konqueror.cpp:19
-msgid "Konqueror open-with history and recent files"
-msgstr ""
-
-#: cleaner_kpixmapcache.cpp:24
-msgid "KDE pixmap cache"
-msgstr ""
-
-#: cleaner_kpresenter.cpp:19
-msgid "KPresenter recent files and dirs"
-msgstr ""
-
-#: cleaner_krita.cpp:19
-msgid "Krita recent files and dirs"
-msgstr ""
-
-#: cleaner_krunner.cpp:23
-msgid "KRunner queries and history"
-msgstr ""
-
-#: cleaner_kspread.cpp:19
-msgid "KSpread recent files and dirs"
-msgstr ""
-
-#: cleaner_ktorrent.cpp:19
-msgid "KTorrent recent files and last save dir"
-msgstr ""
-
-#: cleaner_ktorrentlog.cpp:21
-msgid "KTorrent log files"
-msgstr ""
-
-#: cleaner_ktrash.cpp:25
-msgid "KDE trash bin"
-msgstr ""
-
-#: cleaner_kword.cpp:19
-msgid "KWord recent files and dirs"
-msgstr ""
-
-#: cleaner_kwrite.cpp:19
-msgid "KWrite search replace patterns and recent files"
-msgstr ""
-
-#: cleaner_okular.cpp:19
-msgid "Okular recent files"
-msgstr ""
-
-#: cleaner_okulardocdata.cpp:23
-msgid "Okular orphaned doc notes and viewport data"
-msgstr ""
-
-#: cleaner_plasmawallpaper.cpp:25
-msgid "Plasma wallpaper image cache"
-msgstr ""
-
-#: cleaner_recentdoc.cpp:18
-msgid "Recent accessed documents"
-msgstr ""
-
-#: cleaner_rekonqsnap.cpp:25
-msgid "Rekonq webpage snapshot images"
-msgstr ""
-
-#: cleaner_smplayer.cpp:21
-msgid "SMPlayer recent files and urls"
-msgstr ""
-
-#: cleaner_thumbnail.cpp:24
-msgid "Image thumbnails"
-msgstr ""
-
-#: cleaner_vlc.cpp:21
-msgid "VLC recent files and urls"
-msgstr ""
 
 #: main.cpp:12
 msgid "KSaoLaJi"
@@ -197,11 +37,11 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: mainwindow.cpp:70
+#: mainwindow.cpp:44
 msgid "Refresh"
 msgstr ""
 
-#: mainwindow.cpp:75
+#: mainwindow.cpp:49
 msgid "Clean up..."
 msgstr ""
 
@@ -213,4 +53,188 @@ msgstr ""
 #: rc.cpp:2
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
+msgstr ""
+
+#: cleaners/cleaner_ark.cpp:18
+msgid "Ark recent files"
+msgstr ""
+
+#: cleaners/cleaner_choqoktimeline.cpp:20
+msgid "Choqok timeline backup"
+msgstr ""
+
+#: cleaners/cleaner_cookie.cpp:20
+msgid "Saved site cookies"
+msgstr ""
+
+#: cleaners/cleaner_cookiepolicy.cpp:22
+msgid "Saved site cookie policies"
+msgstr ""
+
+#: cleaners/cleaner_dolphin.cpp:18
+msgid "Dolphin open-with history"
+msgstr ""
+
+#: cleaners/cleaner_favicon.cpp:23
+msgid "Cached site favicons"
+msgstr ""
+
+#: cleaners/cleaner_fcitxrecord.cpp:19
+msgid "Fcitx input record"
+msgstr ""
+
+#: cleaners/cleaner_flashplayer.cpp:23
+msgid "Adobe flash player site cookies and settings"
+msgstr ""
+
+#: cleaners/cleaner_gwenview.cpp:26
+msgid "Gwenview recent files and urls"
+msgstr ""
+
+#: cleaners/cleaner_kaffeine.cpp:18
+msgid "Kaffeine recent files"
+msgstr ""
+
+#: cleaners/cleaner_kate.cpp:18
+msgid "Kate search replace patterns and recent files"
+msgstr ""
+
+#: cleaners/cleaner_kdeglobal.cpp:18
+msgid "KDE global history items and recent urls"
+msgstr ""
+
+#: cleaners/cleaner_kgamerenderer.cpp:23
+msgid "KDE game theme cache"
+msgstr ""
+
+#: cleaners/cleaner_kget.cpp:18
+msgid "KGet recent files and last directory"
+msgstr ""
+
+#: cleaners/cleaner_kgethistory.cpp:23
+msgid "KGet xml/sqlite/nepomuk transfer history"
+msgstr ""
+
+#: cleaners/cleaner_khtmlform.cpp:24
+msgid "KHTML form completions"
+msgstr ""
+
+#: cleaners/cleaner_kickoff.cpp:19
+msgid "Kickoff recent docs and apps"
+msgstr ""
+
+#: cleaners/cleaner_kiohelpcache.cpp:23
+msgid "KDE help handbook cache"
+msgstr ""
+
+#: cleaners/cleaner_kiohttpcache.cpp:19
+msgid "KDE HTTP cache"
+msgstr ""
+
+#: cleaners/cleaner_klipper.cpp:22
+msgid "Klipper history"
+msgstr ""
+
+#: cleaners/cleaner_kmid.cpp:18
+msgid "KMid recent files"
+msgstr ""
+
+#: cleaners/cleaner_kolourpaint.cpp:18
+msgid "Kolurpaint recent files and image size info"
+msgstr ""
+
+#: cleaners/cleaner_konqhistory.cpp:22
+msgid "Konqueror history"
+msgstr ""
+
+#: cleaners/cleaner_konqlocbar.cpp:18
+msgid "Konqueror location bar contents and icon cache"
+msgstr ""
+
+#: cleaners/cleaner_konqueror.cpp:18
+msgid "Konqueror open-with history and recent files"
+msgstr ""
+
+#: cleaners/cleaner_kpixmapcache.cpp:23
+msgid "KDE pixmap cache"
+msgstr ""
+
+#: cleaners/cleaner_kpresenter.cpp:18
+msgid "KPresenter recent files and dirs"
+msgstr ""
+
+#: cleaners/cleaner_krita.cpp:18
+msgid "Krita recent files and dirs"
+msgstr ""
+
+#: cleaners/cleaner_krunner.cpp:22
+msgid "KRunner queries and history"
+msgstr ""
+
+#: cleaners/cleaner_kspread.cpp:18
+msgid "KSpread recent files and dirs"
+msgstr ""
+
+#: cleaners/cleaner_ktorrent.cpp:18
+msgid "KTorrent recent files and last save dir"
+msgstr ""
+
+#: cleaners/cleaner_ktorrentlog.cpp:20
+msgid "KTorrent log files"
+msgstr ""
+
+#: cleaners/cleaner_ktrash.cpp:24
+msgid "KDE trash bin"
+msgstr ""
+
+#: cleaners/cleaner_kword.cpp:18
+msgid "KWord recent files and dirs"
+msgstr ""
+
+#: cleaners/cleaner_kwrite.cpp:18
+msgid "KWrite search replace patterns and recent files"
+msgstr ""
+
+#: cleaners/cleaner_nepomukcache.cpp:17
+msgid "Nepomuk resource local cache"
+msgstr ""
+
+#: cleaners/cleaner_okular.cpp:18
+msgid "Okular recent files"
+msgstr ""
+
+#: cleaners/cleaner_okulardocdata.cpp:22
+msgid "Okular orphaned doc notes and viewport data"
+msgstr ""
+
+#: cleaners/cleaner_plasmawallpaper.cpp:24
+msgid "Plasma wallpaper image cache"
+msgstr ""
+
+#: cleaners/cleaner_recentdoc.cpp:17
+msgid "Recent accessed documents"
+msgstr ""
+
+#: cleaners/cleaner_rekonqhistory.cpp:19
+msgid "Rekonq history"
+msgstr ""
+
+#: cleaners/cleaner_rekonqsnap.cpp:24
+msgid "Rekonq webpage snapshot images"
+msgstr ""
+
+#: cleaners/cleaner_smplayer.cpp:20
+msgid "SMPlayer recent files and urls"
+msgstr ""
+
+#: cleaners/cleaner_thumbnail.cpp:23
+msgid "Image thumbnails"
+msgstr ""
+
+#: cleaners/cleaner_vlc.cpp:20
+msgid "VLC recent files and urls"
+msgstr ""
+
+#: cleaners/cleaner_winetrickscache.cpp:23
+msgid "Winetricks downloads cache"
 msgstr ""
