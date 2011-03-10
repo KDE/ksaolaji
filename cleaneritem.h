@@ -21,6 +21,7 @@ class CleanerItem
         KSaoLaJi::Cleaner* m_cleaner;
         bool m_youlaji;
         bool m_isChecked;
+        int m_useCount;
 };
 
 #endif // CLEANERITEM_H

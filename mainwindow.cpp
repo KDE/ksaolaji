@@ -8,9 +8,7 @@
 #include <KLocale>
 #include <KPushButton>
 #include <KStandardAction>
-#include <KStandardDirs>
 
-#include <QDir>
 #include <QListView>
 #include <QSortFilterProxyModel>
 #include <QVBoxLayout>
@@ -31,9 +29,10 @@ MainWindow::MainWindow()
     layout->addWidget( m_searchEdit );
 
     m_listView = new QListView;
-    m_proxyModel = new QSortFilterProxyModel;
-    m_listModel = new CleanerModel;
+    m_proxyModel = new QSortFilterProxyModel( this );
+    m_listModel = new CleanerModel( this );
     m_proxyModel->setFilterCaseSensitivity( Qt::CaseInsensitive );
+    m_proxyModel->setSortRole( Qt::UserRole );
     m_proxyModel->setSourceModel( m_listModel );
     m_listView->setSelectionMode( QAbstractItemView::NoSelection );
     m_listView->setUniformItemSizes( true );
@@ -51,7 +50,8 @@ MainWindow::MainWindow()
 
     connect( m_button, SIGNAL(clicked()), m_listModel, SLOT(saolaji()) );
 
-    connect( m_searchEdit, SIGNAL(textChanged(QString)), m_proxyModel, SLOT(setFilterFixedString(QString)) );
+    connect( m_searchEdit, SIGNAL(textChanged(QString)), this, SLOT(filterList(QString)) );
+    connect( m_listModel, SIGNAL(refreshFinished()), this, SLOT(sortList()) );
 
     KStandardAction::quit( this, SLOT(close()), actionCollection() );
 
@@ -60,4 +60,15 @@ MainWindow::MainWindow()
 
 MainWindow::~MainWindow()
 {
+}
+
+void MainWindow::filterList( const QString& text )
+{
+    m_proxyModel->setFilterFixedString( text );
+    sortList();
+}
+
+void MainWindow::sortList()
+{
+    m_proxyModel->sort( 0, Qt::DescendingOrder );
 }

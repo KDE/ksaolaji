@@ -90,6 +90,8 @@ QVariant CleanerModel::data( const QModelIndex& index, int role ) const
         return KIcon( m_modelItems.at( index.row() )->iconName() );
     if ( role == Qt::CheckStateRole )
         return m_modelItems.at( index.row() )->isChecked() ? Qt::Checked : Qt::Unchecked;
+    if ( role == Qt::UserRole )
+        return m_modelItems.at( index.row() )->useCount();
 
     return QVariant();
 }
@@ -133,6 +135,8 @@ void CleanerModel::refresh()
         }
         ++it;
     }
+
+    emit refreshFinished();
 }
 
 void CleanerModel::saolaji()
@@ -238,6 +242,9 @@ void CleanerModel::initialize()
     QDBusConnection dbus = QDBusConnection::sessionBus();
     dbus.registerObject( "/KSaoLaJi", this );
     dbus.registerService( "org.foo.ksaolaji" );
+
+    /// emit signal to sort list
+    emit refreshFinished();
 }
 
 void CleanerModel::addCleaner( KSaoLaJi::Cleaner* cleaner )

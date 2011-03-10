@@ -20,6 +20,8 @@ class CleanerModel : public QAbstractListModel
     public Q_SLOTS:
         void refresh();
         void saolaji();
+    Q_SIGNALS:
+        void refreshFinished();
     private Q_SLOTS:
         void initialize();
     private:

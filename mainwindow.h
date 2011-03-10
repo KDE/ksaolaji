@@ -15,6 +15,9 @@ class MainWindow : public KXmlGuiWindow
     public:
         explicit MainWindow();
         virtual ~MainWindow();
+    private Q_SLOTS:
+        void filterList( const QString& text );
+        void sortList();
     private:
         KLineEdit* m_searchEdit;
         QListView* m_listView;
