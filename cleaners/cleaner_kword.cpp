@@ -20,7 +20,7 @@ QString CleanerKWord::uniqueName()
 
 QString CleanerKWord::description()
 {
-    return i18n( "KWord recent files and dirs" );
+    return i18n( "KWord recent files and directories" );
 }
 
 QString CleanerKWord::iconName()

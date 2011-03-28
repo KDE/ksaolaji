@@ -20,7 +20,7 @@ QString CleanerKSpread::uniqueName()
 
 QString CleanerKSpread::description()
 {
-    return i18n( "KSpread recent files and dirs" );
+    return i18n( "KSpread recent files and directories" );
 }
 
 QString CleanerKSpread::iconName()

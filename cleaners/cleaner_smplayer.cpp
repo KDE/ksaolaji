@@ -22,7 +22,7 @@ QString CleanerSMPlayer::uniqueName()
 
 QString CleanerSMPlayer::description()
 {
-    return i18n( "SMPlayer recent files and urls" );
+    return i18n( "SMPlayer recent files and URLs" );
 }
 
 QString CleanerSMPlayer::iconName()

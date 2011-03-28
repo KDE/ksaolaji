@@ -25,7 +25,7 @@ QString CleanerFlashPlayer::uniqueName()
 
 QString CleanerFlashPlayer::description()
 {
-    return i18n( "Adobe flash player site cookies and settings" );
+    return i18n( "Adobe Flash player site cookies and settings" );
 }
 
 QString CleanerFlashPlayer::iconName()

@@ -25,7 +25,7 @@ QString CleanerKGetHistory::uniqueName()
 
 QString CleanerKGetHistory::description()
 {
-    return i18n( "KGet xml/sqlite/nepomuk transfer history" );
+    return i18n( "KGet XML/SQLite/Nepomuk transfer history" );
 }
 
 QString CleanerKGetHistory::iconName()

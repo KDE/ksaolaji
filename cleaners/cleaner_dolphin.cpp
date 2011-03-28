@@ -20,7 +20,7 @@ QString CleanerDolphin::uniqueName()
 
 QString CleanerDolphin::description()
 {
-    return i18n( "Dolphin open-with history" );
+    return i18n( "Dolphin \"Open with\" history" );
 }
 
 QString CleanerDolphin::iconName()

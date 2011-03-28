@@ -20,7 +20,7 @@ QString CleanerKTorrent::uniqueName()
 
 QString CleanerKTorrent::description()
 {
-    return i18n( "KTorrent recent files and last save dir" );
+    return i18n( "KTorrent recent files and last save directory" );
 }
 
 QString CleanerKTorrent::iconName()

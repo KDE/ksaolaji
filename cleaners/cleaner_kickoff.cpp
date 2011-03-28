@@ -21,7 +21,7 @@ QString CleanerKickoff::uniqueName()
 
 QString CleanerKickoff::description()
 {
-    return i18n( "Kickoff recent docs and apps" );
+    return i18n( "Kickoff recent documents and applications" );
 }
 
 QString CleanerKickoff::iconName()

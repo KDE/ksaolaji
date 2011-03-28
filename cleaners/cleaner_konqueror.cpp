@@ -20,7 +20,7 @@ QString CleanerKonqueror::uniqueName()
 
 QString CleanerKonqueror::description()
 {
-    return i18n( "Konqueror open-with history and recent files" );
+    return i18n( "Konqueror \"Open with\" history and recent files" );
 }
 
 QString CleanerKonqueror::iconName()

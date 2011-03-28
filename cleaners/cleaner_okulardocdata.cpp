@@ -24,7 +24,7 @@ QString CleanerOkularDocData::uniqueName()
 
 QString CleanerOkularDocData::description()
 {
-    return i18n( "Okular orphaned doc notes and viewport data" );
+    return i18n( "Okular orphaned document notes and viewport data" );
 }
 
 QString CleanerOkularDocData::iconName()

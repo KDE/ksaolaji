@@ -22,7 +22,7 @@ QString CleanerVLC::uniqueName()
 
 QString CleanerVLC::description()
 {
-    return i18n( "VLC recent files and urls" );
+    return i18n( "VLC recent files and URLs" );
 }
 
 QString CleanerVLC::iconName()

@@ -20,7 +20,7 @@ QString CleanerKDEGlobal::uniqueName()
 
 QString CleanerKDEGlobal::description()
 {
-    return i18n( "KDE global history items and recent urls" );
+    return i18n( "KDE global history items and recent URLs" );
 }
 
 QString CleanerKDEGlobal::iconName()

@@ -20,7 +20,7 @@ QString CleanerKPresenter::uniqueName()
 
 QString CleanerKPresenter::description()
 {
-    return i18n( "KPresenter recent files and dirs" );
+    return i18n( "KPresenter recent files and directories" );
 }
 
 QString CleanerKPresenter::iconName()
