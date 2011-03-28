@@ -4,3 +4,4 @@ GenericName=System Cleaner
 Exec=ksaolaji
 Type=Application
 Icon=applications-accessories
+Categories=Qt;KDE;Utility;
