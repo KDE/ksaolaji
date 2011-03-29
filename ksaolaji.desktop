@@ -1,6 +1,14 @@
 [Desktop Entry]
 Name=KSaolaji
+Name[nl]=KSaolaji
+Name[pt]=KSaolaji
+Name[uk]=KSaolaji
+Name[x-test]=xxKSaolajixx
 GenericName=System Cleaner
+GenericName[nl]=Systeemopruiming
+GenericName[pt]=Limpeza do Sistema
+GenericName[uk]=Очищення системи
+GenericName[x-test]=xxSystem Cleanerxx
 Exec=ksaolaji
 Type=Application
 Icon=applications-accessories
