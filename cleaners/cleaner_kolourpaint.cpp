@@ -20,7 +20,7 @@ QString CleanerKolourPaint::uniqueName()
 
 QString CleanerKolourPaint::description()
 {
-    return i18n( "Kolurpaint recent files and image size info" );
+    return i18n( "Kolourpaint recent files and image size info" );
 }
 
 QString CleanerKolourPaint::iconName()

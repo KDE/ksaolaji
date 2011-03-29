@@ -20,7 +20,7 @@ QString CleanerKrita::uniqueName()
 
 QString CleanerKrita::description()
 {
-    return i18n( "Krita recent files and directoriess" );
+    return i18n( "Krita recent files and directories" );
 }
 
 QString CleanerKrita::iconName()
