@@ -4,11 +4,13 @@
 
 #include <KActionCollection>
 #include <KDebug>
+#include <KIcon>
 #include <KLineEdit>
 #include <KLocale>
 #include <KPushButton>
 #include <KStandardAction>
 
+#include <QHBoxLayout>
 #include <QListView>
 #include <QSortFilterProxyModel>
 #include <QVBoxLayout>
@@ -40,15 +42,22 @@ MainWindow::MainWindow()
     m_listView->setModel( m_proxyModel );
     layout->addWidget( m_listView );
 
+    QHBoxLayout* buttonLayout = new QHBoxLayout;
+    buttonLayout->setMargin( 0 );
+    buttonLayout->setSpacing( 0 );
+    layout->addLayout( buttonLayout );
+
     m_refreshButton = new KPushButton( i18n( "Refresh" ) );
-    layout->addWidget( m_refreshButton );
+    m_refreshButton->setIcon( KIcon( "view-refresh" ) );
+    buttonLayout->addWidget( m_refreshButton );
 
     connect( m_refreshButton, SIGNAL(clicked()), m_listModel, SLOT(refresh()) );
 
-    m_button = new KPushButton( i18n( "Clean up..." ) );
-    layout->addWidget( m_button );
+    m_cleanupButton = new KPushButton( i18n( "Clean up..." ) );
+    m_cleanupButton->setIcon( KIcon( "edit-clear" ) );
+    buttonLayout->addWidget( m_cleanupButton );
 
-    connect( m_button, SIGNAL(clicked()), m_listModel, SLOT(saolaji()) );
+    connect( m_cleanupButton, SIGNAL(clicked()), m_listModel, SLOT(saolaji()) );
 
     connect( m_searchEdit, SIGNAL(textChanged(QString)), this, SLOT(filterList(QString)) );
     connect( m_listModel, SIGNAL(refreshFinished()), this, SLOT(sortList()) );

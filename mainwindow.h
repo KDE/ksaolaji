@@ -24,7 +24,7 @@ class MainWindow : public KXmlGuiWindow
         QSortFilterProxyModel* m_proxyModel;
         CleanerModel* m_listModel;
         KPushButton* m_refreshButton;
-        KPushButton* m_button;
+        KPushButton* m_cleanupButton;
 };
 
 #endif // MAINWINDOW_H
