@@ -10,6 +10,7 @@ class CleanerItem
     public:
         explicit CleanerItem( KSaoLaJi::Cleaner* cleaner );
         ~CleanerItem();
+        bool isThreadSafe() const;
         QString description() const;
         QString iconName() const;
         bool youlaji( bool force = false );

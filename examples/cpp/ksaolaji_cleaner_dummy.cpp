@@ -14,6 +14,11 @@ CleanerDummy::~CleanerDummy()
 {
 }
 
+bool CleanerDummy::isThreadSafe() const
+{
+    return true;
+}
+
 QString CleanerDummy::uniqueName()
 {
     return QString( "dummy_plugin" );

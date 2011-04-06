@@ -14,6 +14,11 @@ CleanerKIOHttpCache::~CleanerKIOHttpCache()
 {
 }
 
+bool CleanerKIOHttpCache::isThreadSafe() const
+{
+    return true;
+}
+
 QString CleanerKIOHttpCache::uniqueName()
 {
     return QString( "kde_http_cache" );

@@ -34,6 +34,7 @@ set(ksaolaji_SRCS
     ${ksaolaji_cleaners_SRCS}
     cleaner_kross.cpp
     cleaneritem.cpp
+    cleanerjob.cpp
     cleanermodel.cpp
     ksaolajiapp.cpp
     main.cpp
@@ -55,6 +56,7 @@ target_link_libraries(ksaolaji
     ${NEPOMUK_LIBRARIES}
     ${KDE4_KROSSCORE_LIBS}
     ${KDE4_KNEWSTUFF3_LIBS}
+    ${KDE4_THREADWEAVER_LIBS}
     ksaolajicleaner
 )
 

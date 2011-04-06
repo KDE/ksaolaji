@@ -3,6 +3,7 @@ KSaoLaJi supports kross scripts since 2011/3/8.
 How to write a cleaner?
 Implement the following functions:
 
+bool isThreadSafe() --- Return whether saolaji() is thread-safe
 string uniqueName() --- Return the unique name of the cleaner
 string description() --- Return the description shown in the application cleaner list
 string iconName() --- Return the cleaner icon name or file path
@@ -18,4 +19,4 @@ You may need to install kross-python or kross-ruby from kdebindings to get it wo
 HAPPY HACKING  :) ;) :>
 
 Ni Hui
-Last update: 2011/3/10
+Last update: 2011/4/6

@@ -53,6 +53,7 @@
 
 #include "cleaner.h"
 #include "cleaneritem.h"
+#include "cleanerjob.h"
 
 #include "ksaolajiadaptor.h"
 
@@ -63,6 +64,7 @@
 #include <KPluginInfo>
 #include <KPluginLoader>
 #include <KServiceTypeTrader>
+#include <ThreadWeaver/Weaver>
 
 #include <QDir>
 #include <QTimer>
@@ -160,8 +162,18 @@ void CleanerModel::saolaji()
     QList<CleanerItem*>::Iterator it = m_modelItems.begin();
     QList<CleanerItem*>::Iterator end = m_modelItems.end();
     while ( it != end ) {
-        if ( ( *it )->isChecked() )
-            ( *it )->saolaji();
+        CleanerItem* cleanerItem = *it;
+        if ( cleanerItem->isChecked() ) {
+            if ( cleanerItem->isThreadSafe() ) {
+                /// thread safe, really happy ^_^
+                CleanerJob* job = new CleanerJob( cleanerItem );
+                ThreadWeaver::Weaver::instance()->enqueue( job );
+            }
+            else {
+                /// not thread safe, run synchonously
+                cleanerItem->saolaji();
+            }
+        }
         ++it;
     }
     refresh();

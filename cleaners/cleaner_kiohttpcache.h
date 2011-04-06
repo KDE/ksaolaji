@@ -8,6 +8,7 @@ class CleanerKIOHttpCache : public KSaoLaJi::Cleaner
     public:
         explicit CleanerKIOHttpCache();
         virtual ~CleanerKIOHttpCache();
+        virtual bool isThreadSafe() const;
         virtual QString uniqueName();
         virtual QString description();
         virtual QString iconName();

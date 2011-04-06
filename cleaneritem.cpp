@@ -23,6 +23,11 @@ CleanerItem::~CleanerItem()
     delete m_cleaner;
 }
 
+bool CleanerItem::isThreadSafe() const
+{
+    return m_cleaner->isThreadSafe();
+}
+
 QString CleanerItem::description() const
 {
     return m_cleaner->description();

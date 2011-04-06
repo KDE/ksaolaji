@@ -14,6 +14,11 @@ CleanerFcitxRecord::~CleanerFcitxRecord()
 {
 }
 
+bool CleanerFcitxRecord::isThreadSafe() const
+{
+    return true;
+}
+
 QString CleanerFcitxRecord::uniqueName()
 {
     return QString( "fcitx_input_record" );

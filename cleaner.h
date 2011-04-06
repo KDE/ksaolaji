@@ -14,7 +14,7 @@ namespace KSaoLaJi {
  * You should subclass @class CleanerPlugin to write a cleaner plugin.
  *
  * @author Ni Hui <shuizhuyuanluo@126.com>
- * @date 2011/3/10
+ * @date 2011/4/6
  */
 class Cleaner
 {
@@ -31,6 +31,13 @@ class Cleaner
          * The default base class routine does nothing.
          */
         virtual ~Cleaner() {}
+
+        /**
+         * @return whether saolaji() function is thread safe or not
+         * note: KIO is not thread-safe
+         * The default implementation returns false
+         */
+        virtual bool isThreadSafe() const { return false; }
 
         /**
          * @return the unique name of this cleaner

@@ -3,6 +3,7 @@ KSaoLaJi supports cleaner plugin since 2011/3/9.
 How to write a cleaner?
 Implement the following functions:
 
+bool isThreadSafe() --- Return whether saolaji() is thread-safe
 QString uniqueName() --- Return the unique name of the cleaner
 QString description() --- Return the description shown in the application cleaner list
 QString iconName() --- Return the cleaner icon name or file path
@@ -14,4 +15,4 @@ Examples can be found in examples/cpp sub-directory.
 HAPPY HACKING  :) ;) :>
 
 Ni Hui
-Last update: 2011/3/10
+Last update: 2011/4/6
