@@ -8,6 +8,7 @@
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
 #include <QDBusInterface>
+#include <QDBusReply>
 
 CleanerKlipper::CleanerKlipper()
 {
@@ -39,8 +40,10 @@ bool CleanerKlipper::youlaji()
         KConfigGroup group( &c, "General" );
         return group.exists();
     }
-    /// always true for running klipper clipboard history
-    return true;
+
+    QDBusInterface klipper( "org.kde.klipper", "/klipper", "org.kde.klipper.klipper" );
+    QDBusReply<QString> reply = klipper.call( "getClipboardContents" );
+    return reply.isValid() && !reply.value().isEmpty();
 }
 
 bool CleanerKlipper::saolaji()
