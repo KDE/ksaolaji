@@ -73,6 +73,8 @@ CleanerModel::CleanerModel( QObject* parent )
 : QAbstractListModel(parent)
 {
     QTimer::singleShot( 0, this, SLOT(initialize()) );
+    connect( ThreadWeaver::Weaver::instance(), SIGNAL(finished()),
+             this, SLOT(refresh()) );
 }
 
 CleanerModel::~CleanerModel()
@@ -159,6 +161,7 @@ void CleanerModel::refresh()
 
 void CleanerModel::saolaji()
 {
+    bool needRefresh = false;
     QList<CleanerItem*>::Iterator it = m_modelItems.begin();
     QList<CleanerItem*>::Iterator end = m_modelItems.end();
     while ( it != end ) {
@@ -172,11 +175,16 @@ void CleanerModel::saolaji()
             else {
                 /// not thread safe, run synchonously
                 cleanerItem->saolaji();
+                needRefresh = true;
             }
         }
         ++it;
     }
-    refresh();
+
+    if ( needRefresh && ThreadWeaver::Weaver::instance()->isEmpty() ) {
+        /// some synchonous cleaning finished, refresh immediately
+        refresh();
+    }
 }
 
 void CleanerModel::reloadScripts()
