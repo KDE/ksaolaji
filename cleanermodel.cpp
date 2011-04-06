@@ -38,6 +38,7 @@
 #include "cleaners/cleaner_ktrash.h"
 #include "cleaners/cleaner_kword.h"
 #include "cleaners/cleaner_kwrite.h"
+#include "cleaners/cleaner_marbletilecache.h"
 #include "cleaners/cleaner_nepomukcache.h"
 #include "cleaners/cleaner_okular.h"
 #include "cleaners/cleaner_okulardocdata.h"
@@ -75,8 +76,10 @@ CleanerModel::CleanerModel( QObject* parent )
 CleanerModel::~CleanerModel()
 {
     qDeleteAll( m_cleanerItems );
+    qDeleteAll( m_scriptItems );
     m_modelItems.clear();
     m_cleanerItems.clear();
+    m_scriptItems.clear();
 }
 
 QVariant CleanerModel::data( const QModelIndex& index, int role ) const
@@ -124,8 +127,21 @@ void CleanerModel::refresh()
     endRemoveRows();
 
     int row = 0;
-    QList<CleanerItem*>::Iterator it = m_cleanerItems.begin();
-    QList<CleanerItem*>::Iterator end = m_cleanerItems.end();
+    /// add scripts
+    QList<CleanerItem*>::Iterator it = m_scriptItems.begin();
+    QList<CleanerItem*>::Iterator end = m_scriptItems.end();
+    while ( it != end ) {
+        if ( ( *it )->youlaji( true ) ) {
+            beginInsertRows( QModelIndex(), row, row );
+            m_modelItems << *it;
+            ++row;
+            endInsertRows();
+        }
+        ++it;
+    }
+    /// add cleaners
+    it = m_cleanerItems.begin();
+    end = m_cleanerItems.end();
     while ( it != end ) {
         if ( ( *it )->youlaji( true ) ) {
             beginInsertRows( QModelIndex(), row, row );
@@ -151,17 +167,29 @@ void CleanerModel::saolaji()
     refresh();
 }
 
-void CleanerModel::initialize()
+void CleanerModel::reloadScripts()
 {
-    /// load kross cleaners
+    qDeleteAll( m_scriptItems );
+    m_scriptItems.clear();
+    /// load kross cleaners and kns scripts
     QDir krossdir( KStandardDirs::locateLocal( "appdata", "kross" ) );
+    QDir kns3dir( KStandardDirs::locateLocal( "appdata", "knewstuff3" ) );
     QFileInfoList scripts = krossdir.entryInfoList( QDir::Files | QDir::NoSymLinks );
+    scripts << kns3dir.entryInfoList( QDir::Files | QDir::NoSymLinks );
     QFileInfoList::ConstIterator it = scripts.constBegin();
     QFileInfoList::ConstIterator end = scripts.constEnd();
     while ( it != end ) {
-        addCleaner( new CleanerKross( ( *it ).absoluteFilePath() ) );
+        KSaoLaJi::Cleaner* cleaner = new CleanerKross( ( *it ).absoluteFilePath() );
+        m_scriptItems << new CleanerItem( cleaner );
         ++it;
     }
+    refresh();
+}
+
+void CleanerModel::initialize()
+{
+    /// load scripts cleaners
+    reloadScripts();
 
     /// load plugin cleaners
     KService::List offers = KServiceTypeTrader::self()->query( "KSaoLaJi/Cleaner" );
@@ -224,6 +252,7 @@ void CleanerModel::initialize()
         addCleaner( new CleanerKTrash );
         addCleaner( new CleanerKWord );
         addCleaner( new CleanerKWrite );
+        addCleaner( new CleanerMarbleTileCache );
         addCleaner( new CleanerNepomukCache );
         addCleaner( new CleanerOkular );
         addCleaner( new CleanerOkularDocData );
@@ -241,7 +270,7 @@ void CleanerModel::initialize()
     new KSaoLaJiAdaptor( this );
     QDBusConnection dbus = QDBusConnection::sessionBus();
     dbus.registerObject( "/KSaoLaJi", this );
-    dbus.registerService( "org.foo.ksaolaji" );
+    dbus.registerService( "org.kde.ksaolaji" );
 
     /// emit signal to sort list
     emit refreshFinished();
