@@ -54,6 +54,7 @@ target_link_libraries(ksaolaji
     ${KDE4_KIO_LIBS}
     ${NEPOMUK_LIBRARIES}
     ${KDE4_KROSSCORE_LIBS}
+    ${KDE4_KNEWSTUFF3_LIBS}
     ksaolajicleaner
 )
 
@@ -61,3 +62,4 @@ install(TARGETS ksaolaji ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(PROGRAMS ksaolaji.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 install(FILES ksaolajiui.rc DESTINATION ${DATA_INSTALL_DIR}/ksaolaji)
+install(FILES ksaolaji.knsrc DESTINATION ${CONFIG_INSTALL_DIR})

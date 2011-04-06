@@ -20,6 +20,7 @@ class CleanerModel : public QAbstractListModel
     public Q_SLOTS:
         void refresh();
         void saolaji();
+        void reloadScripts();
     Q_SIGNALS:
         void refreshFinished();
     private Q_SLOTS:
@@ -29,6 +30,7 @@ class CleanerModel : public QAbstractListModel
     private:
         QList<CleanerItem*> m_modelItems;
         QList<CleanerItem*> m_cleanerItems;
+        QList<CleanerItem*> m_scriptItems;
 };
 
 #endif // CLEANERMODEL_H

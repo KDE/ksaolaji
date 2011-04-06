@@ -18,6 +18,7 @@ class MainWindow : public KXmlGuiWindow
     private Q_SLOTS:
         void filterList( const QString& text );
         void sortList();
+        void knsDownload();
     private:
         KLineEdit* m_searchEdit;
         QListView* m_listView;

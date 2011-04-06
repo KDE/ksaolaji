@@ -2,13 +2,17 @@
 
 #include "cleanermodel.h"
 
+#include <KAction>
 #include <KActionCollection>
 #include <KDebug>
 #include <KIcon>
 #include <KLineEdit>
 #include <KLocale>
+#include <KMessageBox>
 #include <KPushButton>
 #include <KStandardAction>
+
+#include <knewstuff3/downloaddialog.h>
 
 #include <QHBoxLayout>
 #include <QListView>
@@ -59,6 +63,12 @@ MainWindow::MainWindow()
 
     connect( m_cleanupButton, SIGNAL(clicked()), m_listModel, SLOT(saolaji()) );
 
+    KAction* knsDownloadAction = actionCollection()->addAction( "kns_download" );
+    knsDownloadAction->setText( i18n( "&Download scripts..." ) );
+    knsDownloadAction->setIcon( KIcon( "get-hot-new-stuff" ) );
+
+    connect( knsDownloadAction, SIGNAL(triggered()), this, SLOT(knsDownload()) );
+
     connect( m_searchEdit, SIGNAL(textChanged(QString)), this, SLOT(filterList(QString)) );
     connect( m_listModel, SIGNAL(refreshFinished()), this, SLOT(sortList()) );
 
@@ -80,4 +90,13 @@ void MainWindow::filterList( const QString& text )
 void MainWindow::sortList()
 {
     m_proxyModel->sort( 0, Qt::DescendingOrder );
+}
+
+void MainWindow::knsDownload()
+{
+    KNS3::DownloadDialog dialog;
+    dialog.exec();
+    if ( !dialog.changedEntries().isEmpty() ) {
+        m_listModel->reloadScripts();
+    }
 }

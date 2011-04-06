@@ -5,5 +5,7 @@
     </method>
     <method name="saolaji">
     </method>
+    <method name="reloadScripts">
+    </method>
   </interface>
 </node>
