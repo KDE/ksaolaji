@@ -93,7 +93,7 @@
 #include <QTimer>
 
 CleanerModel::CleanerModel( QObject* parent )
-: QAbstractListModel(parent)
+: QAbstractListModel(parent),m_profileEditting(false)
 {
     QTimer::singleShot( 0, this, SLOT(initialize()) );
     connect( ThreadWeaver::Weaver::instance(), SIGNAL(finished()),
@@ -107,6 +107,12 @@ CleanerModel::~CleanerModel()
     m_modelItems.clear();
     m_cleanerItems.clear();
     m_scriptItems.clear();
+}
+
+void CleanerModel::setProfileEditting( bool editting )
+{
+    m_profileEditting = editting;
+    refresh();
 }
 
 QVariant CleanerModel::data( const QModelIndex& index, int role ) const
@@ -157,34 +163,41 @@ bool CleanerModel::setData( const QModelIndex& index, const QVariant& value, int
 
 void CleanerModel::refresh()
 {
-    beginRemoveRows( QModelIndex(), 0, m_modelItems.count() );
-    m_modelItems.clear();
-    endRemoveRows();
-
-    int row = 0;
-    /// add scripts
-    QList<CleanerItem*>::Iterator it = m_scriptItems.begin();
-    QList<CleanerItem*>::Iterator end = m_scriptItems.end();
-    while ( it != end ) {
-        if ( ( *it )->youlaji( true ) ) {
-            beginInsertRows( QModelIndex(), row, row );
-            m_modelItems << *it;
-            ++row;
-            endInsertRows();
-        }
-        ++it;
+    if ( !m_modelItems.isEmpty() ) {
+        beginRemoveRows( QModelIndex(), 0, m_modelItems.count() - 1 );
+        m_modelItems.clear();
+        endRemoveRows();
     }
-    /// add cleaners
-    it = m_cleanerItems.begin();
-    end = m_cleanerItems.end();
-    while ( it != end ) {
-        if ( ( *it )->youlaji( true ) ) {
-            beginInsertRows( QModelIndex(), row, row );
-            m_modelItems << *it;
-            ++row;
-            endInsertRows();
+
+    QList<CleanerItem*> cleanerItemsToShow;
+    if ( m_profileEditting ) {
+        /// show all the cleaners
+        cleanerItemsToShow << m_scriptItems;
+        cleanerItemsToShow << m_cleanerItems;
+    }
+    else {
+        /// add scripts
+        QList<CleanerItem*>::Iterator it = m_scriptItems.begin();
+        QList<CleanerItem*>::Iterator end = m_scriptItems.end();
+        while ( it != end ) {
+            if ( ( *it )->youlaji( true ) )
+                cleanerItemsToShow << *it;
+            ++it;
         }
-        ++it;
+        /// add cleaners
+        it = m_cleanerItems.begin();
+        end = m_cleanerItems.end();
+        while ( it != end ) {
+            if ( ( *it )->youlaji( true ) )
+                cleanerItemsToShow << *it;
+            ++it;
+        }
+    }
+
+    if ( !cleanerItemsToShow.isEmpty() ) {
+        beginInsertRows( QModelIndex(), 0, cleanerItemsToShow.count() - 1 );
+        m_modelItems = cleanerItemsToShow;
+        endInsertRows();
     }
 
     emit refreshFinished();
@@ -222,6 +235,7 @@ void CleanerModel::reloadScripts()
 {
     qDeleteAll( m_scriptItems );
     m_scriptItems.clear();
+
     /// load kross cleaners and kns scripts
     QDir krossdir( KStandardDirs::locateLocal( "appdata", "kross" ) );
     QDir kns3dir( KStandardDirs::locateLocal( "appdata", "knewstuff3" ) );
@@ -234,6 +248,7 @@ void CleanerModel::reloadScripts()
         m_scriptItems << new CleanerItem( cleaner );
         ++it;
     }
+
     refresh();
 }
 
@@ -263,58 +278,58 @@ void CleanerModel::initialize()
         }
 
         kWarning() << "Load plugin: " << service->library();
-        addCleaner( plugin );
+        m_cleanerItems << new CleanerItem( plugin );
     }
 
     /// load built-in cleaners
     {
-        addCleaner( new CleanerArk );
-        addCleaner( new CleanerChoqokTimeline );
-        addCleaner( new CleanerCookie );
-        addCleaner( new CleanerCookiePolicy );
-        addCleaner( new CleanerDolphin );
-        addCleaner( new CleanerFavicon );
-        addCleaner( new CleanerFcitxRecord );
-        addCleaner( new CleanerFlashPlayer );
-        addCleaner( new CleanerGwenview );
-        addCleaner( new CleanerKaffeine );
-        addCleaner( new CleanerKate );
-        addCleaner( new CleanerKDEGlobal );
-        addCleaner( new CleanerKGameRenderer );
-        addCleaner( new CleanerKGet );
-        addCleaner( new CleanerKGetHistory );
-        addCleaner( new CleanerKHTMLForm );
-        addCleaner( new CleanerKickoff );
-        addCleaner( new CleanerKIOHelpCache );
-        addCleaner( new CleanerKIOHttpCache );
-        addCleaner( new CleanerKlipper );
-        addCleaner( new CleanerKMid );
-        addCleaner( new CleanerKolourPaint );
-        addCleaner( new CleanerKonqHistory );
-        addCleaner( new CleanerKonqLocBar );
-        addCleaner( new CleanerKonqueror );
-        addCleaner( new CleanerKPixmapCache );
-        addCleaner( new CleanerKPresenter );
-        addCleaner( new CleanerKrita );
-        addCleaner( new CleanerKRunner );
-        addCleaner( new CleanerKSpread );
-        addCleaner( new CleanerKTorrent );
-        addCleaner( new CleanerKTorrentLog );
-        addCleaner( new CleanerKTrash );
-        addCleaner( new CleanerKWord );
-        addCleaner( new CleanerKWrite );
-        addCleaner( new CleanerMarbleTileCache );
-        addCleaner( new CleanerNepomukCache );
-        addCleaner( new CleanerOkular );
-        addCleaner( new CleanerOkularDocData );
-        addCleaner( new CleanerPlasmaWallpaper );
-        addCleaner( new CleanerRecentDoc );
-        addCleaner( new CleanerRekonqHistory );
-        addCleaner( new CleanerRekonqSnap );
-        addCleaner( new CleanerSMPlayer );
-        addCleaner( new CleanerThumbnail );
-        addCleaner( new CleanerVLC );
-        addCleaner( new CleanerWinetricksCache );
+        m_cleanerItems << new CleanerItem( new CleanerArk );
+        m_cleanerItems << new CleanerItem( new CleanerChoqokTimeline );
+        m_cleanerItems << new CleanerItem( new CleanerCookie );
+        m_cleanerItems << new CleanerItem( new CleanerCookiePolicy );
+        m_cleanerItems << new CleanerItem( new CleanerDolphin );
+        m_cleanerItems << new CleanerItem( new CleanerFavicon );
+        m_cleanerItems << new CleanerItem( new CleanerFcitxRecord );
+        m_cleanerItems << new CleanerItem( new CleanerFlashPlayer );
+        m_cleanerItems << new CleanerItem( new CleanerGwenview );
+        m_cleanerItems << new CleanerItem( new CleanerKaffeine );
+        m_cleanerItems << new CleanerItem( new CleanerKate );
+        m_cleanerItems << new CleanerItem( new CleanerKDEGlobal );
+        m_cleanerItems << new CleanerItem( new CleanerKGameRenderer );
+        m_cleanerItems << new CleanerItem( new CleanerKGet );
+        m_cleanerItems << new CleanerItem( new CleanerKGetHistory );
+        m_cleanerItems << new CleanerItem( new CleanerKHTMLForm );
+        m_cleanerItems << new CleanerItem( new CleanerKickoff );
+        m_cleanerItems << new CleanerItem( new CleanerKIOHelpCache );
+        m_cleanerItems << new CleanerItem( new CleanerKIOHttpCache );
+        m_cleanerItems << new CleanerItem( new CleanerKlipper );
+        m_cleanerItems << new CleanerItem( new CleanerKMid );
+        m_cleanerItems << new CleanerItem( new CleanerKolourPaint );
+        m_cleanerItems << new CleanerItem( new CleanerKonqHistory );
+        m_cleanerItems << new CleanerItem( new CleanerKonqLocBar );
+        m_cleanerItems << new CleanerItem( new CleanerKonqueror );
+        m_cleanerItems << new CleanerItem( new CleanerKPixmapCache );
+        m_cleanerItems << new CleanerItem( new CleanerKPresenter );
+        m_cleanerItems << new CleanerItem( new CleanerKrita );
+        m_cleanerItems << new CleanerItem( new CleanerKRunner );
+        m_cleanerItems << new CleanerItem( new CleanerKSpread );
+        m_cleanerItems << new CleanerItem( new CleanerKTorrent );
+        m_cleanerItems << new CleanerItem( new CleanerKTorrentLog );
+        m_cleanerItems << new CleanerItem( new CleanerKTrash );
+        m_cleanerItems << new CleanerItem( new CleanerKWord );
+        m_cleanerItems << new CleanerItem( new CleanerKWrite );
+        m_cleanerItems << new CleanerItem( new CleanerMarbleTileCache );
+        m_cleanerItems << new CleanerItem( new CleanerNepomukCache );
+        m_cleanerItems << new CleanerItem( new CleanerOkular );
+        m_cleanerItems << new CleanerItem( new CleanerOkularDocData );
+        m_cleanerItems << new CleanerItem( new CleanerPlasmaWallpaper );
+        m_cleanerItems << new CleanerItem( new CleanerRecentDoc );
+        m_cleanerItems << new CleanerItem( new CleanerRekonqHistory );
+        m_cleanerItems << new CleanerItem( new CleanerRekonqSnap );
+        m_cleanerItems << new CleanerItem( new CleanerSMPlayer );
+        m_cleanerItems << new CleanerItem( new CleanerThumbnail );
+        m_cleanerItems << new CleanerItem( new CleanerVLC );
+        m_cleanerItems << new CleanerItem( new CleanerWinetricksCache );
     }
 
     /// setup dbus adaptor
@@ -323,18 +338,5 @@ void CleanerModel::initialize()
     dbus.registerObject( "/KSaoLaJi", this );
     dbus.registerService( "org.kde.ksaolaji" );
 
-    /// emit signal to sort list
-    emit refreshFinished();
-}
-
-void CleanerModel::addCleaner( KSaoLaJi::Cleaner* cleaner )
-{
-    CleanerItem* item = new CleanerItem( cleaner );
-    if ( item->youlaji() ) {
-        int row = m_modelItems.count();
-        beginInsertRows( QModelIndex(), row, row );
-        m_modelItems << item;
-        endInsertRows();
-    }
-    m_cleanerItems << item;
+    refresh();
 }
