@@ -22,6 +22,7 @@
 #include "cleaneritem.h"
 
 #include "cleaner.h"
+#include "profile.h"
 
 #include <KConfig>
 #include <KConfigGroup>
@@ -85,4 +86,9 @@ void CleanerItem::setChecked( bool isChecked )
 int CleanerItem::useCount() const
 {
     return m_useCount;
+}
+
+bool CleanerItem::isProfileChecked( const Profile& profile ) const
+{
+    return profile.contains( m_cleaner->uniqueName() );
 }

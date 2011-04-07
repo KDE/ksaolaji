@@ -19,36 +19,55 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#include "profile.h"
 
-#include <KXmlGuiWindow>
+#include <QFile>
+#include <QTextStream>
 
-class QListView;
-class QSortFilterProxyModel;
-class KLineEdit;
-class KPushButton;
-class CleanerModel;
-
-class MainWindow : public KXmlGuiWindow
+Profile::Profile( const QString& file )
+: m_file(file)
 {
-    Q_OBJECT
-    public:
-        explicit MainWindow();
-        virtual ~MainWindow();
-    private Q_SLOTS:
-        void setupProfileActions();
-        void filterList( const QString& text );
-        void sortList();
-        void knsDownload();
-        void newProfile();
-    private:
-        KLineEdit* m_searchEdit;
-        QListView* m_listView;
-        QSortFilterProxyModel* m_proxyModel;
-        CleanerModel* m_listModel;
-        KPushButton* m_refreshButton;
-        KPushButton* m_cleanupButton;
-};
+}
 
-#endif // MAINWINDOW_H
+Profile::~Profile()
+{
+}
+
+void Profile::load()
+{
+    QFile f( m_file );
+    if ( !f.open( QIODevice::ReadOnly | QIODevice::Text ) )
+        return;
+
+    QTextStream in( &f );
+    in.setCodec( "UTF-8" );
+    while ( !in.atEnd() ) {
+        m_checkedCleaners << in.readLine();
+    }
+}
+
+void Profile::save() const
+{
+    QFile f( m_file );
+    if ( !f.open( QIODevice::WriteOnly | QIODevice::Text ) )
+        return;
+
+    QTextStream out( &f );
+    out.setCodec( "UTF-8" );
+    QSet<QString>::ConstIterator it = m_checkedCleaners.constBegin();
+    QSet<QString>::ConstIterator end = m_checkedCleaners.constEnd();
+    while ( it != end ) {
+        out << *it;
+        ++it;
+    }
+}
+
+bool Profile::contains( const QString& name ) const
+{
+    return m_checkedCleaners.contains( name );
+}
+
+void Profile::insert( const QString& name )
+{
+    m_checkedCleaners.insert( name );
+}

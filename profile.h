@@ -19,33 +19,23 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef CLEANERITEM_H
-#define CLEANERITEM_H
+#ifndef PROFILE_H
+#define PROFILE_H
 
-#include <QString>
+#include <QSet>
 
-namespace KSaoLaJi { class Cleaner; }
-class Profile;
-
-class CleanerItem
+class Profile
 {
     public:
-        explicit CleanerItem( KSaoLaJi::Cleaner* cleaner );
-        ~CleanerItem();
-        bool isThreadSafe() const;
-        QString description() const;
-        QString iconName() const;
-        bool youlaji( bool force = false );
-        bool saolaji();
-        bool isChecked() const;
-        void setChecked( bool isChecked );
-        int useCount() const;
-        bool isProfileChecked( const Profile& profile ) const;
+        explicit Profile( const QString& file );
+        virtual ~Profile();
+        void load();
+        void save() const;
+        bool contains( const QString& name ) const;
+        void insert( const QString& name );
     private:
-        KSaoLaJi::Cleaner* m_cleaner;
-        bool m_youlaji;
-        bool m_isChecked;
-        int m_useCount;
+        QString m_file;
+        QSet<QString> m_checkedCleaners;
 };
 
-#endif // CLEANERITEM_H
+#endif // PROFILE_H

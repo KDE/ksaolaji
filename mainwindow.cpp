@@ -27,6 +27,7 @@
 #include <KActionCollection>
 #include <KDebug>
 #include <KIcon>
+#include <KInputDialog>
 #include <KLineEdit>
 #include <KLocale>
 #include <KMessageBox>
@@ -38,6 +39,7 @@
 #include <QHBoxLayout>
 #include <QListView>
 #include <QSortFilterProxyModel>
+#include <QTimer>
 #include <QVBoxLayout>
 #include <QWidget>
 
@@ -92,6 +94,12 @@ MainWindow::MainWindow()
 
     connect( knsDownloadAction, SIGNAL(triggered()), this, SLOT(knsDownload()) );
 
+    KAction* newProfileAction = actionCollection()->addAction( "new_profile" );
+    newProfileAction->setText( i18n( "New profile..." ) );
+    newProfileAction->setIcon( KIcon( "bookmark-new" ) );
+
+    connect( newProfileAction, SIGNAL(triggered()), this, SLOT(newProfile()) );
+
     connect( m_searchEdit, SIGNAL(textChanged(QString)), this, SLOT(filterList(QString)) );
     connect( m_listModel, SIGNAL(refreshFinished()), this, SLOT(sortList()) );
 
@@ -100,10 +108,34 @@ MainWindow::MainWindow()
     KStandardAction::quit( this, SLOT(close()), actionCollection() );
 
     setupGUI();
+
+    QTimer::singleShot( 0, this, SLOT(setupProfileActions()) );
 }
 
 MainWindow::~MainWindow()
 {
+}
+
+void MainWindow::setupProfileActions()
+{
+    QList<QAction*> selectProfileActions;
+    QList<QAction*> editProfileActions;
+    QList<QAction*> deleteProfileActions;
+
+//     QStringList aaa;
+//     aaa << "pa" << "pb";
+//     foreach ( const QString& p, aaa ) {
+//         selectProfileActions << new KAction( p, this );
+//         editProfileActions << new KAction( p, this );
+//         deleteProfileActions << new KAction( p, this );
+//     }
+
+    unplugActionList( "select_profiles" );
+    plugActionList( "select_profiles", selectProfileActions );
+    unplugActionList( "edit_profiles" );
+    plugActionList( "edit_profiles", editProfileActions );
+    unplugActionList( "delete_profiles" );
+    plugActionList( "delete_profiles", deleteProfileActions );
 }
 
 void MainWindow::filterList( const QString& text )
@@ -124,4 +156,18 @@ void MainWindow::knsDownload()
     if ( !dialog.changedEntries().isEmpty() ) {
         m_listModel->reloadScripts();
     }
+}
+
+void MainWindow::newProfile()
+{
+    bool ok = false;
+    QString name = KInputDialog::getText( i18n( "New profile" ),
+                                          i18n( "Enter the name of the profile" ),
+                                          i18n( "My profile" ),
+                                          &ok
+                                        );
+    if ( !ok )
+        return;
+
+    kWarning() << name;
 }

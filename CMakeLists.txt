@@ -39,6 +39,7 @@ set(ksaolaji_SRCS
     ksaolajiapp.cpp
     main.cpp
     mainwindow.cpp
+    profile.cpp
 )
 
 qt4_add_dbus_adaptor(ksaolaji_SRCS

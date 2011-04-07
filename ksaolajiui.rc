@@ -4,5 +4,22 @@
         <Menu name="file">
             <Action name="kns_download"/>
         </Menu>
+        <Menu name="edit">
+            <ActionList name="select_profiles"/>
+        </Menu>
+        <Menu name="settings">
+            <Menu name="manage_profiles" icon="edit-select">
+                <Text>&amp;Manage profiles</Text>
+                <Action name="new_profile"/>
+                <Menu name="edit_profile" icon="document-edit">
+                    <Text>&amp;Edit profiles</Text>
+                    <ActionList name="edit_profiles"/>
+                </Menu>
+                <Menu name="delete_profile" icon="edit-delete">
+                    <Text>&amp;Delete profiles</Text>
+                    <ActionList name="delete_profiles"/>
+                </Menu>
+            </Menu>
+        </Menu>
     </MenuBar>
 </kpartgui>
