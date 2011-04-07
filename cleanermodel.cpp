@@ -161,6 +161,24 @@ bool CleanerModel::setData( const QModelIndex& index, const QVariant& value, int
     return true;
 }
 
+void CleanerModel::selectAll()
+{
+    int count = m_modelItems.count();
+    for ( int i = 0; i < count; ++i ) {
+        if ( !m_modelItems[ i ]->isChecked() )
+            setData( index( i ), Qt::Checked, Qt::CheckStateRole );
+    }
+}
+
+void CleanerModel::deselect()
+{
+    int count = m_modelItems.count();
+    for ( int i = 0; i < count; ++i ) {
+        if ( m_modelItems[ i ]->isChecked() )
+            setData( index( i ), Qt::Unchecked, Qt::CheckStateRole );
+    }
+}
+
 void CleanerModel::refresh()
 {
     if ( !m_modelItems.isEmpty() ) {

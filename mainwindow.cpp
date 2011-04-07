@@ -95,6 +95,8 @@ MainWindow::MainWindow()
     connect( m_searchEdit, SIGNAL(textChanged(QString)), this, SLOT(filterList(QString)) );
     connect( m_listModel, SIGNAL(refreshFinished()), this, SLOT(sortList()) );
 
+    KStandardAction::selectAll( m_listModel, SLOT(selectAll()), actionCollection() );
+    KStandardAction::deselect( m_listModel, SLOT(deselect()), actionCollection() );
     KStandardAction::quit( this, SLOT(close()), actionCollection() );
 
     setupGUI();

@@ -40,6 +40,8 @@ class CleanerModel : public QAbstractListModel
         virtual int rowCount( const QModelIndex& parent = QModelIndex() ) const;
         virtual bool setData( const QModelIndex& index, const QVariant& value, int role = Qt::EditRole );
     public Q_SLOTS:
+        void selectAll();
+        void deselect();
         void refresh();
         void saolaji();
         void reloadScripts();
