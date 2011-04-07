@@ -87,7 +87,9 @@
 #include <KServiceTypeTrader>
 #include <ThreadWeaver/Weaver>
 
+#include <QApplication>
 #include <QDir>
+#include <QPalette>
 #include <QTimer>
 
 CleanerModel::CleanerModel( QObject* parent )
@@ -112,16 +114,24 @@ QVariant CleanerModel::data( const QModelIndex& index, int role ) const
     if ( !index.isValid() )
         return QVariant();
 
-    if ( role == Qt::DisplayRole )
-        return m_modelItems.at( index.row() )->description();
-    if ( role == Qt::DecorationRole )
-        return KIcon( m_modelItems.at( index.row() )->iconName() );
-    if ( role == Qt::CheckStateRole )
-        return m_modelItems.at( index.row() )->isChecked() ? Qt::Checked : Qt::Unchecked;
-    if ( role == Qt::UserRole )
-        return m_modelItems.at( index.row() )->useCount();
-
-    return QVariant();
+    switch ( role ) {
+        case Qt::DisplayRole:
+            return m_modelItems.at( index.row() )->description();
+        case Qt::DecorationRole:
+            return KIcon( m_modelItems.at( index.row() )->iconName() );
+        case Qt::BackgroundRole:
+            return m_modelItems.at( index.row() )->isChecked()
+                    ? QApplication::palette().midlight()
+                    : QApplication::palette().base();
+        case Qt::CheckStateRole:
+            return m_modelItems.at( index.row() )->isChecked()
+                    ? Qt::Checked
+                    : Qt::Unchecked;
+        case Qt::UserRole:
+            return m_modelItems.at( index.row() )->useCount();
+        default:
+            return QVariant();
+    }
 }
 
 Qt::ItemFlags CleanerModel::flags( const QModelIndex& index ) const
@@ -140,7 +150,7 @@ bool CleanerModel::setData( const QModelIndex& index, const QVariant& value, int
 {
     if ( role == Qt::CheckStateRole ) {
         m_modelItems[ index.row() ]->setChecked( value == Qt::Checked );
-        emit(dataChanged(index, index));
+        emit dataChanged( index, index );
     }
     return true;
 }
