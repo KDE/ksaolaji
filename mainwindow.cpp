@@ -53,6 +53,8 @@ MainWindow::MainWindow()
     mainWidget->setLayout( layout );
 
     m_searchEdit = new KLineEdit;
+    m_searchEdit->setClearButtonShown( true );
+    m_searchEdit->setClickMessage( i18n( "Type here to start searching..." ) );
     layout->addWidget( m_searchEdit );
 
     m_listView = new QListView;
