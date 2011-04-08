@@ -1,7 +1,13 @@
 [Desktop Entry]
 Name=KSaoLaJi
+Name[es]=KSaoLaJi
+Name[pt]=KSaoLaJi
+Name[sv]=Ksaolaji
+Name[uk]=KSaoLaJi
+Name[x-test]=xxKSaoLaJixx
 GenericName=System Cleaner
 GenericName[cs]=Vyčištění systému
+GenericName[es]=Limpiador del sistema
 GenericName[nds]=Systeemreenmaken
 GenericName[nl]=Systeemopruiming
 GenericName[pt]=Limpeza do Sistema
