@@ -75,6 +75,7 @@
 #include "cleaner.h"
 #include "cleaneritem.h"
 #include "cleanerjob.h"
+#include "profile.h"
 
 #include "ksaolajiadaptor.h"
 
@@ -113,6 +114,17 @@ void CleanerModel::setProfileEditting( bool editting )
 {
     m_profileEditting = editting;
     refresh();
+}
+
+void CleanerModel::selectProfile( const Profile& p )
+{
+    int count = m_modelItems.count();
+    for ( int i = 0; i < count; ++i ) {
+        setData( index( i ),
+                 m_modelItems[ i ]->isProfileChecked( p ) ? Qt::Checked : Qt::Unchecked,
+                 Qt::CheckStateRole
+               );
+    }
 }
 
 QVariant CleanerModel::data( const QModelIndex& index, int role ) const
@@ -155,7 +167,10 @@ int CleanerModel::rowCount( const QModelIndex& parent ) const
 bool CleanerModel::setData( const QModelIndex& index, const QVariant& value, int role )
 {
     if ( role == Qt::CheckStateRole ) {
-        m_modelItems[ index.row() ]->setChecked( value == Qt::Checked );
+        bool isChecked = ( value == Qt::Checked );
+        if ( m_modelItems[ index.row() ]->isChecked() == isChecked )
+            return true;
+        m_modelItems[ index.row() ]->setChecked( isChecked );
         emit dataChanged( index, index );
     }
     return true;
@@ -164,19 +179,15 @@ bool CleanerModel::setData( const QModelIndex& index, const QVariant& value, int
 void CleanerModel::selectAll()
 {
     int count = m_modelItems.count();
-    for ( int i = 0; i < count; ++i ) {
-        if ( !m_modelItems[ i ]->isChecked() )
-            setData( index( i ), Qt::Checked, Qt::CheckStateRole );
-    }
+    for ( int i = 0; i < count; ++i )
+        setData( index( i ), Qt::Checked, Qt::CheckStateRole );
 }
 
 void CleanerModel::deselect()
 {
     int count = m_modelItems.count();
-    for ( int i = 0; i < count; ++i ) {
-        if ( m_modelItems[ i ]->isChecked() )
-            setData( index( i ), Qt::Unchecked, Qt::CheckStateRole );
-    }
+    for ( int i = 0; i < count; ++i )
+        setData( index( i ), Qt::Unchecked, Qt::CheckStateRole );
 }
 
 void CleanerModel::refresh()
@@ -239,6 +250,7 @@ void CleanerModel::saolaji()
                 cleanerItem->saolaji();
                 needRefresh = true;
             }
+            cleanerItem->setChecked( false );
         }
         ++it;
     }
