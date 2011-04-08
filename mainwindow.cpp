@@ -99,7 +99,9 @@ MainWindow::MainWindow()
     buttonLayout->addWidget( m_saveProfileButton );
     connect( m_saveProfileButton, SIGNAL(clicked()), this, SLOT(saveProfile()) );
 
-    setProfileEditting( false );
+    m_cancelProfileButton->hide();
+    m_saveProfileButton->hide();
+    m_edittingProfile = 0;
 
     KAction* knsDownloadAction = actionCollection()->addAction( "kns_download" );
     knsDownloadAction->setText( i18n( "&Download scripts..." ) );
@@ -118,7 +120,7 @@ MainWindow::MainWindow()
     KStandardAction::deselect( m_listModel, SLOT(deselect()), actionCollection() );
     KStandardAction::quit( this, SLOT(close()), actionCollection() );
 
-    setupGUI();
+    setupGUI( KXmlGuiWindow::Keys | KXmlGuiWindow::Save | KXmlGuiWindow::Create );
 
     m_selectProfileSignalMapper = new QSignalMapper( this );
     connect( m_selectProfileSignalMapper, SIGNAL(mapped(QObject*)),
