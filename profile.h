@@ -22,19 +22,24 @@
 #ifndef PROFILE_H
 #define PROFILE_H
 
+#include <QObject>
 #include <QSet>
 
-class Profile
+class Profile : public QObject
 {
     public:
-        explicit Profile( const QString& file );
+        explicit Profile( const QString& name );
         virtual ~Profile();
-        void load();
+        QString name() const;
+        void load( bool force = false );
         void save() const;
-        bool contains( const QString& name ) const;
-        void insert( const QString& name );
+        bool contains( const QString& cleaner ) const;
+        void insert( const QString& cleaner );
+        void clear();
+        void remove();
     private:
-        QString m_file;
+        QString m_name;
+        bool m_loaded;
         QSet<QString> m_checkedCleaners;
 };
 

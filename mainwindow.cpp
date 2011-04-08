@@ -22,6 +22,7 @@
 #include "mainwindow.h"
 
 #include "cleanermodel.h"
+#include "profile.h"
 
 #include <KAction>
 #include <KActionCollection>
@@ -33,11 +34,15 @@
 #include <KMessageBox>
 #include <KPushButton>
 #include <KStandardAction>
+#include <KStandardDirs>
 
 #include <knewstuff3/downloaddialog.h>
 
+#include <QDir>
+#include <QFile>
 #include <QHBoxLayout>
 #include <QListView>
+#include <QSignalMapper>
 #include <QSortFilterProxyModel>
 #include <QTimer>
 #include <QVBoxLayout>
@@ -79,25 +84,31 @@ MainWindow::MainWindow()
     m_refreshButton = new KPushButton( i18n( "Refresh" ) );
     m_refreshButton->setIcon( KIcon( "view-refresh" ) );
     buttonLayout->addWidget( m_refreshButton );
-
     connect( m_refreshButton, SIGNAL(clicked()), m_listModel, SLOT(refresh()) );
 
     m_cleanupButton = new KPushButton( i18n( "Clean up..." ) );
     m_cleanupButton->setIcon( KIcon( "edit-clear" ) );
     buttonLayout->addWidget( m_cleanupButton );
-
     connect( m_cleanupButton, SIGNAL(clicked()), m_listModel, SLOT(saolaji()) );
+
+    m_cancelProfileButton = new KPushButton( i18n( "Cancel" ) );
+    buttonLayout->addWidget( m_cancelProfileButton );
+    connect( m_cancelProfileButton, SIGNAL(clicked()), this, SLOT(cancelProfile()) );
+
+    m_saveProfileButton = new KPushButton( i18n( "Save" ) );
+    buttonLayout->addWidget( m_saveProfileButton );
+    connect( m_saveProfileButton, SIGNAL(clicked()), this, SLOT(saveProfile()) );
+
+    setProfileEditting( false );
 
     KAction* knsDownloadAction = actionCollection()->addAction( "kns_download" );
     knsDownloadAction->setText( i18n( "&Download scripts..." ) );
     knsDownloadAction->setIcon( KIcon( "get-hot-new-stuff" ) );
-
     connect( knsDownloadAction, SIGNAL(triggered()), this, SLOT(knsDownload()) );
 
     KAction* newProfileAction = actionCollection()->addAction( "new_profile" );
     newProfileAction->setText( i18n( "New profile..." ) );
     newProfileAction->setIcon( KIcon( "bookmark-new" ) );
-
     connect( newProfileAction, SIGNAL(triggered()), this, SLOT(newProfile()) );
 
     connect( m_searchEdit, SIGNAL(textChanged(QString)), this, SLOT(filterList(QString)) );
@@ -109,6 +120,16 @@ MainWindow::MainWindow()
 
     setupGUI();
 
+    m_selectProfileSignalMapper = new QSignalMapper( this );
+    connect( m_selectProfileSignalMapper, SIGNAL(mapped(QObject*)),
+             this, SLOT(selectProfile(QObject*)) );
+    m_editProfileSignalMapper = new QSignalMapper( this );
+    connect( m_editProfileSignalMapper, SIGNAL(mapped(QObject*)),
+             this, SLOT(editProfile(QObject*)) );
+    m_deleteProfileSignalMapper = new QSignalMapper( this );
+    connect( m_deleteProfileSignalMapper, SIGNAL(mapped(QObject*)),
+             this, SLOT(deleteProfile(QObject*)) );
+
     QTimer::singleShot( 0, this, SLOT(setupProfileActions()) );
 }
 
@@ -118,24 +139,59 @@ MainWindow::~MainWindow()
 
 void MainWindow::setupProfileActions()
 {
-    QList<QAction*> selectProfileActions;
-    QList<QAction*> editProfileActions;
-    QList<QAction*> deleteProfileActions;
+    QDir profileDir( KStandardDirs::locateLocal( "appdata", "profiles/" ) );
+    QStringList profileNames = profileDir.entryList( QDir::Files | QDir::Readable );
+    QStringList::ConstIterator it = profileNames.constBegin();
+    QStringList::ConstIterator end = profileNames.constEnd();
+    while ( it != end ) {
+        m_profiles << new Profile( *it );
+        ++it;
+    }
+    updateProfileActions();
+}
 
-//     QStringList aaa;
-//     aaa << "pa" << "pb";
-//     foreach ( const QString& p, aaa ) {
-//         selectProfileActions << new KAction( p, this );
-//         editProfileActions << new KAction( p, this );
-//         deleteProfileActions << new KAction( p, this );
-//     }
+void MainWindow::updateProfileActions()
+{
+    qDeleteAll( m_selectProfileActions );
+    m_selectProfileActions.clear();
+    qDeleteAll( m_editProfileActions );
+    m_editProfileActions.clear();
+    qDeleteAll( m_deleteProfileActions );
+    m_deleteProfileActions.clear();
+
+    QList<Profile*>::ConstIterator it = m_profiles.constBegin();
+    QList<Profile*>::ConstIterator end = m_profiles.constEnd();
+    while ( it != end ) {
+        Profile* profile = *it;
+        ++it;
+
+        QString name = profile->name();
+
+        KAction* selectProfileAction = new KAction( name, 0 );
+        connect( selectProfileAction, SIGNAL(triggered()),
+                 m_selectProfileSignalMapper, SLOT(map()) );
+        m_selectProfileSignalMapper->setMapping( selectProfileAction, profile );
+        m_selectProfileActions << selectProfileAction;
+
+        KAction* editProfileAction = new KAction( name, 0 );
+        connect( editProfileAction, SIGNAL(triggered()),
+                 m_editProfileSignalMapper, SLOT(map()) );
+        m_editProfileSignalMapper->setMapping( editProfileAction, profile );
+        m_editProfileActions << editProfileAction;
+
+        KAction* deleteProfileAction = new KAction( name, 0 );
+        connect( deleteProfileAction, SIGNAL(triggered()),
+                 m_deleteProfileSignalMapper, SLOT(map()) );
+        m_deleteProfileSignalMapper->setMapping( deleteProfileAction, profile );
+        m_deleteProfileActions << deleteProfileAction;
+    }
 
     unplugActionList( "select_profiles" );
-    plugActionList( "select_profiles", selectProfileActions );
+    plugActionList( "select_profiles", m_selectProfileActions );
     unplugActionList( "edit_profiles" );
-    plugActionList( "edit_profiles", editProfileActions );
+    plugActionList( "edit_profiles", m_editProfileActions );
     unplugActionList( "delete_profiles" );
-    plugActionList( "delete_profiles", deleteProfileActions );
+    plugActionList( "delete_profiles", m_deleteProfileActions );
 }
 
 void MainWindow::filterList( const QString& text )
@@ -158,6 +214,32 @@ void MainWindow::knsDownload()
     }
 }
 
+void MainWindow::setProfileEditting( bool editting )
+{
+    m_listModel->setProfileEditting( editting );
+    m_refreshButton->setVisible( !editting );
+    m_cleanupButton->setVisible( !editting );
+    m_cancelProfileButton->setVisible( editting );
+    m_saveProfileButton->setVisible( editting );
+
+    if ( !editting ) {
+        m_edittingProfile = 0;
+    }
+}
+
+void MainWindow::cancelProfile()
+{
+    setProfileEditting( false );
+    m_listModel->deselect();
+}
+
+void MainWindow::saveProfile()
+{
+    m_listModel->saveToProfile( m_edittingProfile );
+    m_edittingProfile->save();
+    setProfileEditting( false );
+}
+
 void MainWindow::newProfile()
 {
     bool ok = false;
@@ -169,5 +251,40 @@ void MainWindow::newProfile()
     if ( !ok )
         return;
 
-    kWarning() << name;
+    if ( QFile::exists( KStandardDirs::locateLocal( "appdata", "profiles/" ) + name ) ) {
+        KMessageBox::error( this, i18n( "The profile named %1 already exists.", name ) );
+        return;
+    }
+
+    m_profiles << new Profile( name );
+    updateProfileActions();
+}
+
+void MainWindow::selectProfile( QObject* obj )
+{
+    Profile* profile = static_cast<Profile*>(obj);
+    profile->load();
+    m_listModel->selectProfile( profile );
+}
+
+void MainWindow::editProfile( QObject* obj )
+{
+    setProfileEditting( true );
+    m_edittingProfile = static_cast<Profile*>(obj);
+    m_listModel->selectProfile( m_edittingProfile );
+}
+
+void MainWindow::deleteProfile( QObject* obj )
+{
+    Profile* profile = static_cast<Profile*>(obj);
+    if ( profile == m_edittingProfile ) {
+        KMessageBox::error( this, i18n( "You can not delete profile while editting it." ) );
+        return;
+    }
+
+    profile->remove();
+    int index = m_profiles.indexOf( profile );
+    m_profiles.removeAt( index );
+    delete profile;
+    updateProfileActions();
 }

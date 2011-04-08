@@ -21,21 +21,32 @@
 
 #include "profile.h"
 
+#include <KStandardDirs>
+
 #include <QFile>
 #include <QTextStream>
 
-Profile::Profile( const QString& file )
-: m_file(file)
+Profile::Profile( const QString& name )
+: m_name(name)
 {
+    m_loaded = false;
 }
 
 Profile::~Profile()
 {
 }
 
-void Profile::load()
+QString Profile::name() const
 {
-    QFile f( m_file );
+    return m_name;
+}
+
+void Profile::load( bool force )
+{
+    if ( m_loaded && !force )
+        return;
+
+    QFile f( KStandardDirs::locateLocal( "appdata", "profiles/" ) + m_name );
     if ( !f.open( QIODevice::ReadOnly | QIODevice::Text ) )
         return;
 
@@ -44,11 +55,12 @@ void Profile::load()
     while ( !in.atEnd() ) {
         m_checkedCleaners << in.readLine();
     }
+    m_loaded = true;
 }
 
 void Profile::save() const
 {
-    QFile f( m_file );
+    QFile f( KStandardDirs::locateLocal( "appdata", "profiles/" ) + m_name );
     if ( !f.open( QIODevice::WriteOnly | QIODevice::Text ) )
         return;
 
@@ -57,17 +69,28 @@ void Profile::save() const
     QSet<QString>::ConstIterator it = m_checkedCleaners.constBegin();
     QSet<QString>::ConstIterator end = m_checkedCleaners.constEnd();
     while ( it != end ) {
-        out << *it;
+        out << *it << '\n';
         ++it;
     }
 }
 
-bool Profile::contains( const QString& name ) const
+bool Profile::contains( const QString& cleaner ) const
 {
-    return m_checkedCleaners.contains( name );
+    return m_checkedCleaners.contains( cleaner );
 }
 
-void Profile::insert( const QString& name )
+void Profile::insert( const QString& cleaner )
 {
-    m_checkedCleaners.insert( name );
+    m_checkedCleaners.insert( cleaner );
+}
+
+void Profile::clear()
+{
+    m_checkedCleaners.clear();
+}
+
+void Profile::remove()
+{
+    QFile::remove( KStandardDirs::locateLocal( "appdata", "profiles/" ) + m_name );
+    m_loaded = false;
 }

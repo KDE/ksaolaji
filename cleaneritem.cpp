@@ -88,7 +88,13 @@ int CleanerItem::useCount() const
     return m_useCount;
 }
 
-bool CleanerItem::isProfileChecked( const Profile& profile ) const
+bool CleanerItem::isProfileChecked( const Profile* profile ) const
 {
-    return profile.contains( m_cleaner->uniqueName() );
+    return profile->contains( m_cleaner->uniqueName() );
 }
+
+void CleanerItem::setProfileChecked( Profile* profile ) const
+{
+    profile->insert( m_cleaner->uniqueName() );
+}
+

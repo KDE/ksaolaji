@@ -25,10 +25,12 @@
 #include <KXmlGuiWindow>
 
 class QListView;
+class QSignalMapper;
 class QSortFilterProxyModel;
 class KLineEdit;
 class KPushButton;
 class CleanerModel;
+class Profile;
 
 class MainWindow : public KXmlGuiWindow
 {
@@ -38,10 +40,17 @@ class MainWindow : public KXmlGuiWindow
         virtual ~MainWindow();
     private Q_SLOTS:
         void setupProfileActions();
+        void updateProfileActions();
         void filterList( const QString& text );
         void sortList();
         void knsDownload();
+        void setProfileEditting( bool editting );
+        void cancelProfile();
+        void saveProfile();
         void newProfile();
+        void selectProfile( QObject* obj );
+        void editProfile( QObject* obj );
+        void deleteProfile( QObject* obj );
     private:
         KLineEdit* m_searchEdit;
         QListView* m_listView;
@@ -49,6 +58,16 @@ class MainWindow : public KXmlGuiWindow
         CleanerModel* m_listModel;
         KPushButton* m_refreshButton;
         KPushButton* m_cleanupButton;
+        KPushButton* m_cancelProfileButton;
+        KPushButton* m_saveProfileButton;
+        QList<Profile*> m_profiles;
+        Profile* m_edittingProfile;
+        QList<QAction*> m_selectProfileActions;
+        QList<QAction*> m_editProfileActions;
+        QList<QAction*> m_deleteProfileActions;
+        QSignalMapper* m_selectProfileSignalMapper;
+        QSignalMapper* m_editProfileSignalMapper;
+        QSignalMapper* m_deleteProfileSignalMapper;
 };
 
 #endif // MAINWINDOW_H

@@ -116,7 +116,7 @@ void CleanerModel::setProfileEditting( bool editting )
     refresh();
 }
 
-void CleanerModel::selectProfile( const Profile& p )
+void CleanerModel::selectProfile( const Profile* p )
 {
     int count = m_modelItems.count();
     for ( int i = 0; i < count; ++i ) {
@@ -124,6 +124,17 @@ void CleanerModel::selectProfile( const Profile& p )
                  m_modelItems[ i ]->isProfileChecked( p ) ? Qt::Checked : Qt::Unchecked,
                  Qt::CheckStateRole
                );
+    }
+}
+
+void CleanerModel::saveToProfile( Profile* p ) const
+{
+    p->clear();
+    int count = m_modelItems.count();
+    for ( int i = 0; i < count; ++i ) {
+        if ( m_modelItems[ i ]->isChecked() ) {
+            m_cleanerItems[ i ]->setProfileChecked( p );
+        }
     }
 }
 
@@ -267,8 +278,8 @@ void CleanerModel::reloadScripts()
     m_scriptItems.clear();
 
     /// load kross cleaners and kns scripts
-    QDir krossdir( KStandardDirs::locateLocal( "appdata", "kross" ) );
-    QDir kns3dir( KStandardDirs::locateLocal( "appdata", "knewstuff3" ) );
+    QDir krossdir( KStandardDirs::locateLocal( "appdata", "kross/" ) );
+    QDir kns3dir( KStandardDirs::locateLocal( "appdata", "knewstuff3/" ) );
     QFileInfoList scripts = krossdir.entryInfoList( QDir::Files | QDir::NoSymLinks );
     scripts << kns3dir.entryInfoList( QDir::Files | QDir::NoSymLinks );
     QFileInfoList::ConstIterator it = scripts.constBegin();

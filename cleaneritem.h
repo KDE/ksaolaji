@@ -40,7 +40,8 @@ class CleanerItem
         bool isChecked() const;
         void setChecked( bool isChecked );
         int useCount() const;
-        bool isProfileChecked( const Profile& profile ) const;
+        bool isProfileChecked( const Profile* profile ) const;
+        void setProfileChecked( Profile* profile ) const;
     private:
         KSaoLaJi::Cleaner* m_cleaner;
         bool m_youlaji;
