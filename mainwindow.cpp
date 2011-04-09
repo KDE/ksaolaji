@@ -280,7 +280,7 @@ void MainWindow::deleteProfile( QObject* obj )
 {
     Profile* profile = static_cast<Profile*>(obj);
     if ( profile == m_edittingProfile ) {
-        KMessageBox::error( this, i18n( "You can not delete profile while editting it." ) );
+        KMessageBox::error( this, i18n( "You can not delete profile while editing it." ) );
         return;
     }
 
