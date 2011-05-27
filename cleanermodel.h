@@ -53,6 +53,7 @@ class CleanerModel : public QAbstractListModel
     private Q_SLOTS:
         void initialize();
     private:
+        bool m_saolajiing;
         bool m_profileEditting;
         QList<CleanerItem*> m_modelItems;
         QList<CleanerItem*> m_cleanerItems;

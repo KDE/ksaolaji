@@ -94,7 +94,7 @@
 #include <QTimer>
 
 CleanerModel::CleanerModel( QObject* parent )
-: QAbstractListModel(parent),m_profileEditting(false)
+: QAbstractListModel(parent),m_saolajiing(false),m_profileEditting(false)
 {
     QTimer::singleShot( 0, this, SLOT(initialize()) );
     connect( ThreadWeaver::Weaver::instance(), SIGNAL(finished()),
@@ -203,6 +203,11 @@ void CleanerModel::deselect()
 
 void CleanerModel::refresh()
 {
+    if ( m_saolajiing ) {
+        /// do not try to refresh while cleaning system
+        return;
+    }
+
     if ( !m_modelItems.isEmpty() ) {
         beginRemoveRows( QModelIndex(), 0, m_modelItems.count() - 1 );
         m_modelItems.clear();
@@ -245,6 +250,8 @@ void CleanerModel::refresh()
 
 void CleanerModel::saolaji()
 {
+    m_saolajiing = true;
+
     bool needRefresh = false;
     QList<CleanerItem*>::Iterator it = m_modelItems.begin();
     QList<CleanerItem*>::Iterator end = m_modelItems.end();
@@ -265,6 +272,8 @@ void CleanerModel::saolaji()
         }
         ++it;
     }
+
+    m_saolajiing = false;
 
     if ( needRefresh && ThreadWeaver::Weaver::instance()->isEmpty() ) {
         /// some synchonous cleaning finished, refresh immediately
