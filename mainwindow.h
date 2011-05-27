@@ -44,7 +44,7 @@ class MainWindow : public KXmlGuiWindow
         void filterList( const QString& text );
         void sortList();
         void knsDownload();
-        void setProfileEditting( bool editting );
+        void setProfileEditing( bool editing );
         void cancelProfile();
         void saveProfile();
         void newProfile();
@@ -61,7 +61,7 @@ class MainWindow : public KXmlGuiWindow
         KPushButton* m_cancelProfileButton;
         KPushButton* m_saveProfileButton;
         QList<Profile*> m_profiles;
-        Profile* m_edittingProfile;
+        Profile* m_editingProfile;
         QList<QAction*> m_selectProfileActions;
         QList<QAction*> m_editProfileActions;
         QList<QAction*> m_deleteProfileActions;

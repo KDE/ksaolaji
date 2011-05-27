@@ -94,7 +94,7 @@
 #include <QTimer>
 
 CleanerModel::CleanerModel( QObject* parent )
-: QAbstractListModel(parent),m_saolajiing(false),m_profileEditting(false)
+: QAbstractListModel(parent),m_saolajiing(false),m_profileEditing(false)
 {
     QTimer::singleShot( 0, this, SLOT(initialize()) );
     connect( ThreadWeaver::Weaver::instance(), SIGNAL(finished()),
@@ -110,9 +110,9 @@ CleanerModel::~CleanerModel()
     m_scriptItems.clear();
 }
 
-void CleanerModel::setProfileEditting( bool editting )
+void CleanerModel::setProfileEditing( bool editing )
 {
-    m_profileEditting = editting;
+    m_profileEditing = editing;
     refresh();
 }
 
@@ -215,7 +215,7 @@ void CleanerModel::refresh()
     }
 
     QList<CleanerItem*> cleanerItemsToShow;
-    if ( m_profileEditting ) {
+    if ( m_profileEditing ) {
         /// show all the cleaners
         cleanerItemsToShow << m_scriptItems;
         cleanerItemsToShow << m_cleanerItems;

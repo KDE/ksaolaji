@@ -101,7 +101,7 @@ MainWindow::MainWindow()
 
     m_cancelProfileButton->hide();
     m_saveProfileButton->hide();
-    m_edittingProfile = 0;
+    m_editingProfile = 0;
 
     KAction* knsDownloadAction = actionCollection()->addAction( "kns_download" );
     knsDownloadAction->setText( i18n( "&Download scripts..." ) );
@@ -216,30 +216,30 @@ void MainWindow::knsDownload()
     }
 }
 
-void MainWindow::setProfileEditting( bool editting )
+void MainWindow::setProfileEditing( bool editing )
 {
-    m_listModel->setProfileEditting( editting );
-    m_refreshButton->setVisible( !editting );
-    m_cleanupButton->setVisible( !editting );
-    m_cancelProfileButton->setVisible( editting );
-    m_saveProfileButton->setVisible( editting );
+    m_listModel->setProfileEditing( editing );
+    m_refreshButton->setVisible( !editing );
+    m_cleanupButton->setVisible( !editing );
+    m_cancelProfileButton->setVisible( editing );
+    m_saveProfileButton->setVisible( editing );
 
-    if ( !editting ) {
-        m_edittingProfile = 0;
+    if ( !editing ) {
+        m_editingProfile = 0;
     }
 }
 
 void MainWindow::cancelProfile()
 {
-    setProfileEditting( false );
+    setProfileEditing( false );
     m_listModel->deselect();
 }
 
 void MainWindow::saveProfile()
 {
-    m_listModel->saveToProfile( m_edittingProfile );
-    m_edittingProfile->save();
-    setProfileEditting( false );
+    m_listModel->saveToProfile( m_editingProfile );
+    m_editingProfile->save();
+    setProfileEditing( false );
 }
 
 void MainWindow::newProfile()
@@ -271,15 +271,15 @@ void MainWindow::selectProfile( QObject* obj )
 
 void MainWindow::editProfile( QObject* obj )
 {
-    setProfileEditting( true );
-    m_edittingProfile = static_cast<Profile*>(obj);
-    m_listModel->selectProfile( m_edittingProfile );
+    setProfileEditing( true );
+    m_editingProfile = static_cast<Profile*>(obj);
+    m_listModel->selectProfile( m_editingProfile );
 }
 
 void MainWindow::deleteProfile( QObject* obj )
 {
     Profile* profile = static_cast<Profile*>(obj);
-    if ( profile == m_edittingProfile ) {
+    if ( profile == m_editingProfile ) {
         KMessageBox::error( this, i18n( "You can not delete profile while editing it." ) );
         return;
     }

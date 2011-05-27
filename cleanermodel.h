@@ -35,7 +35,7 @@ class CleanerModel : public QAbstractListModel
     public:
         explicit CleanerModel( QObject* parent = 0 );
         virtual ~CleanerModel();
-        void setProfileEditting( bool editting );
+        void setProfileEditing( bool editing );
         void selectProfile( const Profile* p );
         void saveToProfile( Profile* p ) const;
         virtual QVariant data( const QModelIndex& index, int role = Qt::DisplayRole ) const;
@@ -54,7 +54,7 @@ class CleanerModel : public QAbstractListModel
         void initialize();
     private:
         bool m_saolajiing;
-        bool m_profileEditting;
+        bool m_profileEditing;
         QList<CleanerItem*> m_modelItems;
         QList<CleanerItem*> m_cleanerItems;
         QList<CleanerItem*> m_scriptItems;
