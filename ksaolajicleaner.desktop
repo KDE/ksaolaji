@@ -3,6 +3,7 @@ Type=ServiceType
 X-KDE-ServiceType=KSaoLaJi/Cleaner
 X-KDE-Derived=KPluginInfo
 Comment=KSaoLaJi Cleaner
+Comment[de]=KSaoLaJi-Aufräumprogramm
 Comment[es]=Limpiador KSaoLaJi
 Comment[et]=KSaoLaJi puhastaja
 Comment[fr]=Nettoyeur « KSaoLaJi »
